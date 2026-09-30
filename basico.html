@@ -1,0 +1,211 @@
+<!doctype html>
+<!-- lang diz ao navegador (e a leitores de tela) em que idioma a página está -->
+<html lang="pt-BR">
+  <head>
+    <!-- Permite acentos e caracteres especiais -->
+    <meta charset="UTF-8" />
+    <!-- Faz a página se ajustar bem no celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Básico</title>
+    <!-- Liga este HTML ao arquivo de CSS -->
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header>
+      <!-- Use só UM h1 por página: é o título principal -->
+      <h1>Funcionalidades Básicas do HTML</h1>
+
+      <!-- nav agrupa os links de navegação -->
+      <nav>
+        <!-- href="#id" pula para o elemento com aquele id na mesma página -->
+        <a href="#textos">Textos</a> | <a href="#listas">Listas</a> |
+        <a href="#links">Links e Imagens</a> | <a href="#tabela">Tabela</a> |
+        <a href="#formulario">Formulário</a>
+      </nav>
+    </header>
+
+    <hr />
+    <!-- linha horizontal (tag que não precisa fechar) -->
+
+    <!-- ===================== CONTEÚDO PRINCIPAL ===================== -->
+    <main>
+      <!-- ---------- 1. TEXTOS ---------- -->
+      <section id="textos">
+        <h2>1. Textos</h2>
+
+        <!-- Títulos vão de h1 (mais importante) até h6 (menos importante) -->
+        <h3>Isto é um h3</h3>
+        <h4>Isto é um h4</h4>
+
+        <!-- p = parágrafo -->
+        <p>
+          Isto é um parágrafo. Posso deixar uma palavra em
+          <strong>negrito (importante)</strong>, em <em>itálico (ênfase)</em> ou
+          <mark>destacada</mark>.
+        </p>
+
+        <p>
+          Para quebrar a linha sem começar outro parágrafo, uso o br.<br />
+          Viu? Continuei na linha de baixo.
+        </p>
+
+        <!-- blockquote = citação -->
+        <blockquote>
+          "Primeiro resolva o problema. Depois escreva o código."
+        </blockquote>
+
+        <!-- code = trecho de código dentro do texto -->
+        <p>Para criar um parágrafo, use a tag <code>&lt;p&gt;</code>.</p>
+        <!-- &lt; e &gt; mostram os símbolos < e > sem o navegador achar que é uma tag -->
+      </section>
+
+      <!-- ---------- 2. LISTAS ---------- -->
+      <section id="listas">
+        <h2>2. Listas</h2>
+
+        <h3>Lista não ordenada (ul)</h3>
+        <ul>
+          <li>Arroz</li>
+          <li>Feijão</li>
+          <li>Batata</li>
+        </ul>
+
+        <h3>Lista ordenada (ol)</h3>
+        <ol>
+          <li>Abrir o VS Code</li>
+          <li>Criar o arquivo .html</li>
+          <li>Abrir no navegador</li>
+        </ol>
+      </section>
+
+      <!-- ---------- 3. LINKS E IMAGENS ---------- -->
+      <section id="links">
+        <h2>3. Links e Imagens</h2>
+
+        <!-- target="_blank" abre o link em uma nova aba -->
+        <p>
+          Veja a documentação do HTML no
+          <a
+            href="https://developer.mozilla.org/pt-BR/docs/Web/HTML"
+            target="_blank"
+            >MDN</a
+          >.
+        </p>
+
+        <!-- Link simples: href = endereço, texto entre as tags = o que aparece na tela -->
+        <p>
+          Pratique com exemplos no
+          <a href="https://www.w3schools.com/html/" target="_blank">W3Schools</a
+          >.
+        </p>
+
+        <!-- Link para outro arquivo da mesma pasta -->
+        <p>Voltar para a <a href="introducao.html">página de introdução</a>.</p>
+
+        <!-- img não fecha. O alt descreve a imagem (acessibilidade + aparece se a imagem não carregar) -->
+        <img
+          src="https://placehold.co/300x150"
+          alt="Imagem de exemplo com fundo cinza"
+          width="300"
+        />
+      </section>
+
+      <!-- ---------- 4. TABELA ---------- -->
+      <section id="tabela">
+        <h2>4. Tabela</h2>
+
+        <!-- table > thead/tbody > tr (linha) > th (título) ou td (célula) -->
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Tag</th>
+              <th>Para que serve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>p</td>
+              <td>Parágrafo</td>
+            </tr>
+            <tr>
+              <td>a</td>
+              <td>Link</td>
+            </tr>
+            <tr>
+              <td>img</td>
+              <td>Imagem</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ---------- 5. FORMULÁRIO ---------- -->
+      <section id="formulario">
+        <h2>5. Formulário</h2>
+
+        <form>
+          <!-- O "for" do label liga ao "id" do input: clicar no texto foca o campo -->
+          <label for="nome">Nome:</label><br />
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Digite seu nome"
+            required
+          />
+          <br /><br />
+
+          <label for="email">E-mail:</label><br />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="voce@exemplo.com"
+          />
+          <br /><br />
+
+          <label for="idade">Idade:</label><br />
+          <input type="number" id="idade" name="idade" min="0" />
+          <br /><br />
+
+          <!-- radio: escolhe só UMA opção (mesmo name) -->
+          <p>Nível:</p>
+          <input type="radio" id="iniciante" name="nivel" value="iniciante" />
+          <label for="iniciante">Iniciante</label>
+          <input type="radio" id="avancado" name="nivel" value="avancado" />
+          <label for="avancado">Avançado</label>
+          <br /><br />
+
+          <!-- checkbox: pode marcar várias -->
+          <input type="checkbox" id="termos" name="termos" />
+          <label for="termos">Aceito os termos</label>
+          <br /><br />
+
+          <!-- select = lista suspensa -->
+          <label for="curso">Curso:</label>
+          <select id="curso" name="curso">
+            <option value="html">HTML</option>
+            <option value="css">CSS</option>
+            <option value="js">JavaScript</option>
+          </select>
+          <br /><br />
+
+          <!-- textarea = texto com várias linhas -->
+          <label for="mensagem">Mensagem:</label><br />
+          <textarea id="mensagem" name="mensagem" rows="4" cols="40"></textarea>
+          <br /><br />
+
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+
+    <hr />
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+  </body>
+</html>

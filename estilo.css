@@ -1,0 +1,153 @@
+/*
+  CSS = a "roupa" da página. O HTML diz O QUE é cada coisa,
+  o CSS diz COMO ela aparece.
+
+  Estrutura de uma regra:
+    seletor {
+      propriedade: valor;
+    }
+*/
+
+/* ===================== PÁGINA INTEIRA ===================== */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* tipo de letra */
+  background-color: #f4f6fb;                  /* cor de fundo */
+  color: #222;                                /* cor do texto */
+  line-height: 1.6;                           /* espaço entre linhas */
+  margin: 0;                                  /* tira a margem padrão do navegador */
+}
+
+/* ===================== CABEÇALHO ===================== */
+header {
+  background-color: #3b5bdb;
+  color: white;
+  text-align: center;  /* centraliza o texto */
+  padding: 24px;       /* espaço INTERNO */
+}
+
+header h1 {
+  margin: 0 0 12px;    /* cima 0, lados 0, baixo 12px */
+}
+
+/* "nav a" = links que estão DENTRO do nav */
+nav a {
+  color: white;
+  text-decoration: none; /* tira o sublinhado */
+  font-weight: bold;
+}
+
+/* :hover = quando o mouse passa por cima */
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===================== CONTEÚDO ===================== */
+main {
+  max-width: 800px;  /* não deixa o conteúdo ficar largo demais */
+  margin: 0 auto;    /* "auto" nos lados = centraliza na tela */
+  padding: 16px;
+}
+
+/* Cada seção vira um "cartão" branco */
+section {
+  background-color: white;
+  border-radius: 10px;                       /* cantos arredondados */
+  padding: 20px;
+  margin-bottom: 20px;                       /* espaço EXTERNO embaixo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* sombra suave */
+}
+
+h2 {
+  color: #3b5bdb;
+  border-bottom: 2px solid #dbe4ff;  /* linha embaixo do título */
+  padding-bottom: 6px;
+}
+
+a {
+  color: #3b5bdb;
+}
+
+blockquote {
+  border-left: 4px solid #3b5bdb;
+  margin-left: 0;
+  padding-left: 16px;
+  font-style: italic;
+  color: #555;
+}
+
+code {
+  background-color: #eef1f7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+img {
+  border-radius: 8px;
+}
+
+/* ===================== TABELA ===================== */
+table {
+  border-collapse: collapse;  /* junta as bordas duplas em uma só */
+  width: 100%;
+}
+
+th,
+td {                           /* vírgula = aplica nos dois */
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #3b5bdb;
+  color: white;
+}
+
+/* :nth-child(even) = linhas pares → efeito "zebrado" */
+tbody tr:nth-child(even) {
+  background-color: #f1f3f9;
+}
+
+/* ===================== FORMULÁRIO ===================== */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;  /* o padding não aumenta a largura total */
+}
+
+/* :focus = quando o campo está selecionado */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #3b5bdb;
+}
+
+button {
+  background-color: #3b5bdb;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;  /* mãozinha no mouse */
+}
+
+button:hover {
+  background-color: #2f4ac0;
+}
+
+/* ===================== RODAPÉ ===================== */
+footer {
+  text-align: center;
+  color: #777;
+  padding: 16px;
+}
