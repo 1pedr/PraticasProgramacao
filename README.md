@@ -16,6 +16,7 @@ Anotações e exercícios do curso de Práticas de Programação (HTML, CSS e Ja
 | `verificador.html`   | Verificador interativo de notas                                  |
 | `switch.html`        | Switch case: cases, break, default e cases empilhados           |
 | `repeticao.html`     | Repetição com while e do...while, contadora, acumuladora e teste de mesa |
+| `for.html`           | Laço for: comparação com while, tabuada e contagem regressiva    |
 | `desafio.html`       | Desafio com prompt e calculadora de operações aritméticas        |
 
 ## Estrutura

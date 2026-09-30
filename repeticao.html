@@ -22,6 +22,7 @@
         <a href="condicionais.html">Condicionais</a> |
         <a href="switch.html">Switch</a> |
         <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
         <a href="verificador.html">Verificador</a> |
         <a href="desafio.html">Desafios</a>
       </nav>
@@ -104,13 +105,21 @@ console.log("O somatório é: " + soma); // 55</pre
           e conferir o que o laço faz.
         </p>
         <p>
+          Começando em 1, os dois botões dão o <strong>mesmo resultado</strong>
+          (como na apostila). Começando <strong>depois</strong> do fim, eles se
+          separam (veja a seção 4).
+        </p>
+        <p>
           <small>Código desta seção: <code>js/repeticao.js</code>, seções 1 a 3.</small>
         </p>
 
         <!-- O JS acha este formulário pelo id -->
         <form id="form-contagem" novalidate>
-          <label for="campo-fim">Contar de 1 até:</label>
-          <input type="number" id="campo-fim" min="1" max="100" step="1" value="10" />
+          <label for="campo-inicio-contagem">Começar em:</label>
+          <input type="number" id="campo-inicio-contagem" min="0" max="100" step="1" value="1" />
+          <br /><br />
+          <label for="campo-fim">Contar até:</label>
+          <input type="number" id="campo-fim" min="1" max="50" step="1" value="10" />
           <br /><br />
           <label for="campo-passo">De quanto em quanto:</label>
           <input type="number" id="campo-passo" min="1" max="10" step="1" value="1" />
@@ -145,6 +154,52 @@ console.log("O somatório é: " + soma); // 55</pre
 
         <!-- O JS escreve o resultado aqui -->
         <pre id="resultado-diferenca" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section>
+        <h2>5. Média de N notas (exemplo da aula)</h2>
+        <p>
+          O programa pergunta quantas notas são, e o <code>while</code> pede
+          uma nota por rodada, acumulando na <code>soma</code>.
+        </p>
+        <pre class="saida">
+let contador = 1;
+const qtd = Number(prompt("Quantas notas?"));
+let soma = 0;
+let nota = 0;
+
+while (contador &lt;= qtd) {
+  nota = Number(prompt("Digite a nota"));
+  soma += nota;        // acumuladora
+  contador++;          // contadora
+}
+
+console.log("Média: " + soma / qtd);</pre
+        >
+        <p>
+          Cuidado com o <code>Number()</code>: o <code>prompt</code> devolve
+          texto, e sem converter a soma vira <code>"0" + "7" + "8"</code> =
+          <code>"078"</code>.
+        </p>
+        <p>
+          O código acima é o da aula, sem proteção: se cancelar, a nota vira
+          0 e a média sai errada (ou <code>NaN</code>). O botão abaixo trata
+          isso: aceita vírgula (<code>8,5</code>) e, se a nota for inválida,
+          pede a mesma de novo com <code>continue</code>.
+        </p>
+        <p>
+          A professora acompanha as variáveis numa tabela do Excel: isso é o
+          <strong>teste de mesa</strong>. O botão abaixo monta essa tabela para
+          você.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/repeticao.js</code>, seção 5.</small>
+        </p>
+
+        <button id="btn-notas">Calcular média</button>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre id="resultado-notas" class="saida" role="status" aria-live="polite"></pre>
       </section>
 
       <section>

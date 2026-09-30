@@ -198,6 +198,7 @@ function tratarSalario(evento) {
 // 4. Aumento por cargo (switch com texto)
 // O texto precisa ser idêntico ao do case, com maiúscula e acento.
 // Devolve o aumento como fração (1 = 100%), ou null se o cargo não existir.
+// O default avisa com alert(), igual na aula.
 function obterAumentoPorCargo(cargo) {
   let aumento;
 
@@ -215,6 +216,7 @@ function obterAumentoPorCargo(cargo) {
       aumento = 10 / 100;
       break;
     default:
+      alert("Favor escolher um cargo válido!");
       aumento = null;
   }
 
@@ -236,7 +238,7 @@ function tratarAumento(evento) {
   const aumento = obterAumentoPorCargo(cargo);
 
   if (aumento === null) {
-    saida.textContent = "Favor escolher um cargo válido!"; // caiu no default
+    saida.textContent = ""; // caiu no default: o alert já avisou
     return;
   }
 
