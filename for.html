@@ -6,14 +6,14 @@
     <meta charset="UTF-8" />
     <!-- Ajusta a página ao celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Laço for em JavaScript</title>
+    <title>for, for...in e for...of</title>
     <!-- Liga o CSS -->
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
     <!-- Cabeçalho -->
     <header>
-      <h1>Repetição: for</h1>
+      <h1>Repetição: for, for...in e for...of</h1>
       <nav>
         <a href="javascript.html">Início</a> |
         <a href="variaveis.html">Variáveis</a> |
@@ -21,8 +21,7 @@
         <a href="operadores.html">Operadores</a> |
         <a href="condicionais.html">Condicionais</a> |
         <a href="switch.html">Switch</a> |
-        <a href="repeticao.html">Repetição</a> |
-        <a href="for.html">For</a> |
+        <a href="repeticao.html">Repetição</a> | <a href="for.html">For</a> |
         <a href="verificador.html">Verificador</a> |
         <a href="desafio.html">Desafios</a>
       </nav>
@@ -44,12 +43,18 @@ for (início; condição; passo) {
 }</pre
         >
         <ul>
-          <li><code>início</code>: roda uma vez só, antes de tudo (<code>let i = 1</code>).</li>
+          <li>
+            <code>início</code>: roda uma vez só, antes de tudo (<code
+              >let i = 1</code
+            >).
+          </li>
           <li>
             <code>condição</code>: testada <strong>antes</strong> de cada
             rodada, como no <code>while</code> (<code>i &lt;= 10</code>).
           </li>
-          <li><code>passo</code>: roda no fim de cada rodada (<code>i++</code>).</li>
+          <li>
+            <code>passo</code>: roda no fim de cada rodada (<code>i++</code>).
+          </li>
         </ul>
         <p>
           Por costume, a contadora do <code>for</code> se chama
@@ -74,19 +79,19 @@ for (let i = 1; i &lt;= 10; i++) {
 }</pre
         >
         <p>
-          Use o <code>for</code> quando você <strong>já sabe quantas
-          vezes</strong> vai repetir (de 1 a 10, as 4 notas...). Use o
-          <code>while</code> quando depende de algo que muda no caminho (repetir
-          até o usuário digitar certo).
+          Use o <code>for</code> quando você
+          <strong>já sabe quantas vezes</strong> vai repetir (de 1 a 10, as 4
+          notas...). Use o <code>while</code> quando depende de algo que muda no
+          caminho (repetir até o usuário digitar certo).
         </p>
       </section>
 
       <section>
         <h2>Exemplo 1: contar e somar</h2>
         <p>
-          O mesmo exemplo da página de repetição, agora com <code>for</code>.
-          A <code>soma</code> continua sendo a acumuladora; o
-          <code>i</code> é a contadora.
+          O mesmo exemplo da página de repetição, agora com <code>for</code>. A
+          <code>soma</code> continua sendo a acumuladora; o <code>i</code> é a
+          contadora.
         </p>
         <pre class="saida">
 let soma = 0;
@@ -105,12 +110,24 @@ console.log("O somatório é: " + soma); // 55</pre
         <!-- O JS acha este formulário pelo id -->
         <form id="form-contagem" novalidate>
           <label for="campo-fim">Contar de 1 até:</label>
-          <input type="number" id="campo-fim" min="1" max="50" step="1" value="10" />
+          <input
+            type="number"
+            id="campo-fim"
+            min="1"
+            max="50"
+            step="1"
+            value="10"
+          />
           <button type="submit">Rodar com for</button>
         </form>
 
         <!-- O JS escreve o resultado aqui -->
-        <pre id="resultado-contagem" class="saida" role="status" aria-live="polite"></pre>
+        <pre
+          id="resultado-contagem"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
       </section>
 
       <section>
@@ -131,19 +148,31 @@ for (let i = 1; i &lt;= 10; i++) {
         <!-- O JS acha este formulário pelo id -->
         <form id="form-tabuada" novalidate>
           <label for="campo-tabuada">Tabuada do:</label>
-          <input type="number" id="campo-tabuada" min="1" max="100" step="1" value="7" />
+          <input
+            type="number"
+            id="campo-tabuada"
+            min="1"
+            max="100"
+            step="1"
+            value="7"
+          />
           <button type="submit">Ver tabuada</button>
         </form>
 
         <!-- O JS escreve o resultado aqui -->
-        <pre id="resultado-tabuada" class="saida" role="status" aria-live="polite"></pre>
+        <pre
+          id="resultado-tabuada"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
       </section>
 
       <section>
         <h2>Exemplo 3: contagem regressiva</h2>
         <p>
-          O <code>for</code> também anda para trás: começa alto, a condição
-          vira <code>&gt;=</code> e o passo vira <code>i--</code>.
+          O <code>for</code> também anda para trás: começa alto, a condição vira
+          <code>&gt;=</code> e o passo vira <code>i--</code>.
         </p>
         <pre class="saida">
 for (let i = 10; i &gt;= 1; i--) {
@@ -163,12 +192,208 @@ console.log("Fogo!");</pre
         <!-- O JS acha este formulário pelo id -->
         <form id="form-regressiva" novalidate>
           <label for="campo-regressiva">Começar em:</label>
-          <input type="number" id="campo-regressiva" min="1" max="50" step="1" value="10" />
+          <input
+            type="number"
+            id="campo-regressiva"
+            min="1"
+            max="50"
+            step="1"
+            value="10"
+          />
           <button type="submit">Contar</button>
         </form>
 
         <!-- O JS escreve o resultado aqui -->
-        <pre id="resultado-regressiva" class="saida" role="status" aria-live="polite"></pre>
+        <pre
+          id="resultado-regressiva"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
+      </section>
+
+      <section>
+        <h2>Exemplo 4: for...in (percorrer um objeto)</h2>
+        <p>
+          <strong>Objeto</strong> é um "pacote" de informações com nome, entre
+          <code>{ }</code>: cada linha é <code>propriedade: valor</code>. Ele
+          representa uma coisa do mundo real, como uma pessoa.
+        </p>
+        <pre class="saida">
+// Variável: 1 nome, 1 valor
+const nome = "pedruxo";
+const nota = 1;
+
+// Objeto: 1 nome, vários valores juntos
+const pessoa = {
+  nome: "pedruxo",
+  telefone: "(55) 9 8888-4321",
+  endereco: "ABC"
+};
+
+console.log(pessoa.nome);     // "pedruxo"  (ponto + nome da propriedade)
+console.log(pessoa["nome"]);  // "pedruxo"  (mesma coisa, com colchetes)</pre
+        >
+        <p>
+          Com o objeto pronto, o <code>for...in</code> passa por cada
+          propriedade sozinho:
+        </p>
+        <pre class="saida">
+const pessoa = {
+  nome: "pedruxo",
+  telefone: "(55) 9 8888-4321",
+  endereco: "ABC"
+};
+
+for (let atributo in pessoa) {
+  console.log(atributo + " -> " + pessoa[atributo]);
+}</pre
+        >
+        <ul>
+          <li>
+            O <code>for...in</code> passa pelo <strong>nome</strong> de cada
+            propriedade: <code>nome</code>, <code>telefone</code>,
+            <code>endereco</code>.
+          </li>
+          <li>
+            Para pegar o <strong>valor</strong>, use colchetes:
+            <code>pessoa[atributo]</code>. Com o nome fixo, dá para usar ponto:
+            <code>pessoa.nome</code>.
+          </li>
+          <li>
+            Não precisa de contador, condição nem passo: o JS sabe quantas
+            propriedades existem.
+          </li>
+        </ul>
+        <p>
+          <small>Código desta seção: <code>js/for.js</code>, seção 4.</small>
+        </p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-pessoa" novalidate>
+          <label for="campo-nome">nome:</label>
+          <input type="text" id="campo-nome" value="pedruxo" />
+          <br /><br />
+          <label for="campo-telefone">telefone:</label>
+          <input type="text" id="campo-telefone" value="(55) 9 8888-4321" />
+          <br /><br />
+          <label for="campo-endereco">endereco:</label>
+          <input type="text" id="campo-endereco" value="ABC" />
+          <br /><br />
+          <button type="submit">Percorrer com for...in</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre
+          id="resultado-pessoa"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
+      </section>
+
+      <section>
+        <h2>Exemplo 5: for...of (percorrer um array)</h2>
+        <p>
+          <strong>Array</strong> (ou vetor) é uma <strong>lista</strong> de
+          valores entre <code>[ ]</code>. Cada valor tem uma posição, o
+          <strong>índice</strong>, que começa em <strong>0</strong>. Arrays são
+          o assunto da próxima unidade.
+        </p>
+        <pre class="saida">
+const carros = ["Gol", "Fusca", "Virtus", "Ka"];
+
+for (let carro of carros) {
+  console.log(carro);
+}
+
+console.log(carros[0]); // "Gol": o primeiro fica na posição 0</pre
+        >
+        <p>
+          O <code>for...of</code> passa pelo <strong>valor</strong> de cada item
+          e sempre percorre a lista inteira, sem você controlar tamanho ou
+          condição.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/for.js</code>, seção 5.</small>
+        </p>
+
+        <button id="btn-carros">Percorrer com for...of</button>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre
+          id="resultado-carros"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
+      </section>
+
+      <section>
+        <h2>Exemplo 6: for...of com texto</h2>
+        <p>
+          Um texto (string) também é uma sequência: o <code>for...of</code>
+          pega uma letra por rodada. O espaço também conta.
+        </p>
+        <pre class="saida">
+const curso = "Gran Cursos";
+
+for (let letra of curso) {
+  console.log(letra);
+}</pre
+        >
+        <p>
+          <small>Código desta seção: <code>js/for.js</code>, seção 6.</small>
+        </p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-letras" novalidate>
+          <label for="campo-texto">Texto:</label>
+          <input type="text" id="campo-texto" value="Gran Cursos" />
+          <button type="submit">Separar letras</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre
+          id="resultado-letras"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></pre>
+      </section>
+
+      <section>
+        <h2>in ou of?</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Laço</th>
+              <th>Percorre</th>
+              <th>Cada rodada recebe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>for</code></td>
+              <td>números (você controla)</td>
+              <td>o contador <code>i</code></td>
+            </tr>
+            <tr>
+              <td><code>for...in</code></td>
+              <td>objeto <code>{ }</code></td>
+              <td>o <strong>nome</strong> da propriedade</td>
+            </tr>
+            <tr>
+              <td><code>for...of</code></td>
+              <td>array <code>[ ]</code> ou texto</td>
+              <td>o <strong>valor</strong> de cada item</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          Para lembrar: <strong>in</strong> = nomes que estão <em>dentro</em> do
+          objeto; <strong>of</strong> = cada valor <em>da</em> lista.
+        </p>
       </section>
     </main>
 
