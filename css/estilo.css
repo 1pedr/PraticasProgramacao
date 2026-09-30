@@ -180,6 +180,19 @@ button:hover {
   background-color: var(--vermelho-escuro);
 }
 
+/* ===================== SAÍDA DO JAVASCRIPT ===================== */
+/* Caixa onde o JavaScript escreve os resultados (tag <pre> com class="saida") */
+.saida {
+  background-color: #0d0d0d;
+  color: #ff8a8a;
+  border-left: 4px solid var(--vermelho);
+  border-radius: 6px;
+  padding: 12px;
+  font-family: Consolas, monospace;
+  white-space: pre-wrap;  /* mantém as quebras de linha e quebra linhas longas */
+  min-height: 1.5em;
+}
+
 /* ===================== RODAPÉ ===================== */
 footer {
   text-align: center;
