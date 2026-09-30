@@ -12,6 +12,7 @@ Anotações e exercícios do curso de Práticas de Programação (HTML, CSS e Ja
 | `variaveis.html` | Variáveis |
 | `entrada-saida.html` | Entrada e saída de dados |
 | `operadores.html` | Operadores |
+| `desafio.html` | Desafio: pedir dois números com `prompt()` e mostrar a soma com `alert()` |
 
 ## Estrutura
 
