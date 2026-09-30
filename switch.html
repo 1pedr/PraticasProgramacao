@@ -1,0 +1,332 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Case em JavaScript</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <h1>Switch Case</h1>
+      <nav>
+        <a href="javascript.html">Início</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="desafio.html">Desafios</a>
+      </nav>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <section>
+        <h2>O que é o switch case?</h2>
+        <p>
+          É outra estrutura condicional. Em vez de encadear vários
+          <code>else if</code>, você compara <strong>uma variável</strong> com
+          vários valores possíveis, cada um chamado de <code>case</code>
+          (caso). Com muitas comparações, fica mais organizado que o
+          <code>if</code>.
+        </p>
+        <pre class="saida">
+switch (variavel) {
+  case valor:
+    instrução;
+    break;
+  default:
+    instrução;
+}</pre
+        >
+        <ul>
+          <li><code>variavel</code>: a expressão que será avaliada.</li>
+          <li>
+            <code>case valor</code>: se a variável for igual a esse valor, as
+            instruções do case são executadas.
+          </li>
+          <li>
+            <code>break</code>: encerra o switch. Sem ele, o programa continua
+            executando o case seguinte (veja o exemplo 3).
+          </li>
+          <li><code>default</code>: executa quando nenhum case corresponde.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Exemplo 1: nome do mês</h2>
+        <p>
+          O exemplo clássico: transformar o número do mês no nome dele. O
+          <code>console.log</code> (ou a mensagem) fica <em>fora</em> do switch,
+          para não repetir em todo case.
+        </p>
+        <pre class="saida">
+let nomeMes;
+
+switch (mes) {
+  case 1:
+    nomeMes = "Janeiro";
+    break;
+  case 2:
+    nomeMes = "Fevereiro";
+    break;
+  // ... até o case 12
+  default:
+    nomeMes = "Mês inexistente";
+}</pre
+        >
+        <p>
+          <small>Código desta seção: <code>js/switch.js</code>, seção 1.</small>
+        </p>
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-mes" novalidate>
+          <label for="campo-mes">Número do mês:</label><br />
+          <input type="number" id="campo-mes" step="1" placeholder="Ex.: 8" />
+          <button type="submit">Ver o mês</button>
+        </form>
+        <!-- O JS escreve o resultado aqui -->
+        <p
+          id="resultado-mes"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section>
+        <h2>Exemplo 2: média e conceito (vários cases juntos)</h2>
+        <p>
+          O switch do JavaScript não compara intervalos (não existe
+          <code>case media &gt;= 7</code>). A solução da aula: empilhar vários
+          <code>case</code> sem <code>break</code> entre eles, então todos
+          executam o mesmo bloco.
+        </p>
+        <pre class="saida">
+switch (media) {
+  case 0: case 1: case 2: case 3: case 4:
+    resultado = "Reprovado";
+    break;
+  case 5: case 6:
+    resultado = "Recuperação";
+    break;
+  case 7: case 8: case 9: case 10:
+    resultado = "Aprovado";
+    break;
+  default:
+    resultado = "Nota inválida";
+}</pre
+        >
+        <p>
+          Como o switch só compara valores exatos, a média (que pode ter
+          decimais, como 6,75) é arredondada para baixo com
+          <code>Math.floor()</code> antes de entrar no switch. Digite as 4
+          notas, como na aula (<code>n1</code> a <code>n4</code>).
+        </p>
+        <pre class="saida">
+const media = (n1 + n2 + n3 + n4) / 4;
+switch (Math.floor(media)) {
+  // ... os cases de cima
+}</pre
+        >
+        <p>
+          <small>Código desta seção: <code>js/switch.js</code>, seção 2.</small>
+        </p>
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-media" novalidate>
+          <label for="nota-1">Nota 1:</label>
+          <input
+            type="number"
+            id="nota-1"
+            min="0"
+            max="10"
+            step="any"
+            placeholder="Ex.: 8"
+          />
+          <br /><br />
+          <label for="nota-2">Nota 2:</label>
+          <input
+            type="number"
+            id="nota-2"
+            min="0"
+            max="10"
+            step="any"
+            placeholder="Ex.: 3"
+          />
+          <br /><br />
+          <label for="nota-3">Nota 3:</label>
+          <input
+            type="number"
+            id="nota-3"
+            min="0"
+            max="10"
+            step="any"
+            placeholder="Ex.: 7"
+          />
+          <br /><br />
+          <label for="nota-4">Nota 4:</label>
+          <input
+            type="number"
+            id="nota-4"
+            min="0"
+            max="10"
+            step="any"
+            placeholder="Ex.: 5"
+          />
+          <br /><br />
+          <button type="submit">Classificar</button>
+        </form>
+        <!-- O JS escreve o resultado aqui -->
+        <p
+          id="resultado-media"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section>
+        <h2>Exemplo 3: o perigo de esquecer o break</h2>
+        <p>
+          Salário de um professor conforme a titulação: especialista 5%, mestre
+          10%, doutor 15% (o doutor é o <code>default</code>). O salário base é
+          2000.
+        </p>
+        <pre class="saida">
+switch (titulacao) {
+  case "especialista":
+    salario *= 1.05;   // mesmo que salario = salario * 1.05
+    break;
+  case "mestre":
+    salario *= 1.10;
+    break;
+  default:
+    salario *= 1.15;
+    break;
+}</pre
+        >
+        <p>
+          Sem o <code>break</code>, o programa executa o case certo
+          <strong>e continua</strong> para os de baixo. Para "mestre" o
+          resultado seria 2530 em vez de 2200. Marque e desmarque a caixa para
+          ver a diferença.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/switch.js</code>, seção 3.</small>
+        </p>
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-salario" novalidate>
+          <label for="campo-titulacao">Titulação:</label><br />
+          <select id="campo-titulacao">
+            <option value="especialista">Especialista</option>
+            <option value="mestre" selected>Mestre</option>
+            <option value="doutor">Doutor</option>
+          </select>
+          <br /><br />
+          <label>
+            <input type="checkbox" id="usar-break" checked />
+            Usar break
+          </label>
+          <br /><br />
+          <button type="submit">Calcular salário</button>
+        </form>
+        <!-- O JS escreve o resultado aqui -->
+        <p
+          id="resultado-salario"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section>
+        <h2>Exemplo 4: aumento de salário por cargo</h2>
+        <p>
+          Aqui o switch compara <strong>textos</strong> (strings), não números.
+          Aumento por cargo: Estagiário 100%, Analista 50%, Gerente 30%,
+          Presidente 10%. Se o cargo não existir, cai no <code>default</code>.
+        </p>
+        <pre class="saida">
+const salario = 1000.56;
+const cargo = "Estagiário";
+let aumento = 0;
+
+switch (cargo) {
+  case "Estagiário": aumento = 100 / 100; break;
+  case "Analista":   aumento = 50 / 100;  break;
+  case "Gerente":    aumento = 30 / 100;  break;
+  case "Presidente": aumento = 10 / 100;  break;
+  default: alert("Favor escolher um cargo válido!");
+}
+
+console.log(aumento);</pre
+        >
+        <p>
+          O texto do <code>case</code> precisa ser idêntico ao valor, inclusive
+          maiúsculas e acento. Escolha "Selecione..." para ver o
+          <code>default</code> agir.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/switch.js</code>, seção 4.</small>
+        </p>
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-aumento" novalidate>
+          <label for="campo-cargo">Cargo:</label><br />
+          <select id="campo-cargo">
+            <option value="">Selecione...</option>
+            <option value="Estagiário" selected>Estagiário (100%)</option>
+            <option value="Analista">Analista (50%)</option>
+            <option value="Gerente">Gerente (30%)</option>
+            <option value="Presidente">Presidente (10%)</option>
+          </select>
+          <br /><br />
+          <label for="campo-salario-base">Salário atual:</label><br />
+          <input
+            type="number"
+            id="campo-salario-base"
+            step="any"
+            value="1000.56"
+          />
+          <br /><br />
+          <button type="submit">Calcular aumento</button>
+        </form>
+        <!-- O JS escreve o resultado aqui -->
+        <p
+          id="resultado-aumento"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section>
+        <h2>Switch ou if?</h2>
+        <p>
+          O switch trata os casos de <strong>uma única variável</strong>. O
+          <code>if</code> é mais flexível: dá para combinar várias condições de
+          uma vez, como
+          <code>if (media &gt;= 7 &amp;&amp; frequencia &gt; 75)</code>. Por
+          isso o switch não substitui o <code>if</code> em todas as situações.
+          Use o switch quando houver muitos valores exatos para uma mesma
+          variável.
+        </p>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
+    <script src="js/switch.js"></script>
+  </body>
+</html>
