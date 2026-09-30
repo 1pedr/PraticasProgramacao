@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entrada e Saída em JavaScript</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Entrada e Saída</h1>
+      <nav>
+        <a href="javascript.html">Início</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>O que é entrada e saída?</h2>
+        <p>
+          <strong>Saída</strong>: o programa mostra algo para o usuário.<br />
+          <strong>Entrada</strong>: o usuário envia algo para o programa.
+        </p>
+        <p>
+          O código está em <code>js/entrada-saida.js</code>. Teste os botões e
+          depois veja como cada um foi feito.
+        </p>
+      </section>
+
+      <!-- ===================== SAÍDA ===================== -->
+      <section>
+        <h2>Saída 1: console.log</h2>
+        <p>
+          Mostra uma mensagem no console. Aperte <strong>F12</strong> e abra a
+          aba <em>Console</em> para ver.
+        </p>
+      </section>
+
+      <section>
+        <h2>Saída 2: alert</h2>
+        <!-- O id permite que o JavaScript ache este botão -->
+        <button id="btn-alert">Mostrar alert</button>
+      </section>
+
+      <section>
+        <h2>Saída 3: escrever na página</h2>
+        <pre id="saida-pagina" class="saida"></pre>
+      </section>
+
+      <!-- ===================== ENTRADA ===================== -->
+      <section>
+        <h2>Entrada 1: prompt</h2>
+        <p>Abre uma janelinha que pergunta algo ao usuário.</p>
+        <button id="btn-prompt">Perguntar meu nome</button>
+        <pre id="saida-prompt" class="saida"></pre>
+      </section>
+
+      <section>
+        <h2>Entrada 2: confirm</h2>
+        <p>Pergunta sim ou não: devolve <code>true</code> ou <code>false</code>.</p>
+        <button id="btn-confirm">Fazer pergunta</button>
+        <pre id="saida-confirm" class="saida"></pre>
+      </section>
+
+      <section>
+        <h2>Entrada 3: campo de formulário</h2>
+        <p>O jeito mais usado em sites de verdade.</p>
+        <label for="campo-nome">Seu nome:</label><br />
+        <input type="text" id="campo-nome" placeholder="Digite aqui" />
+        <button id="btn-campo">Enviar</button>
+        <pre id="saida-campo" class="saida"></pre>
+      </section>
+
+      <section>
+        <h2>Cuidado: tudo que o usuário digita é texto</h2>
+        <p>
+          Para fazer conta, o JavaScript precisa converter o texto em número
+          com <code>Number()</code>.
+        </p>
+        <input type="number" id="num-a" placeholder="Número 1" />
+        +
+        <input type="number" id="num-b" placeholder="Número 2" />
+        <button id="btn-soma">Somar</button>
+        <pre id="saida-soma" class="saida"></pre>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <script src="js/util.js"></script>
+    <script src="js/entrada-saida.js"></script>
+  </body>
+</html>
