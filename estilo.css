@@ -8,25 +8,40 @@
     }
 */
 
+/* ===================== CORES (variáveis) =====================
+  Em vez de repetir o mesmo código de cor várias vezes, guardamos
+  em "variáveis". Para mudar o tema inteiro, basta mudar aqui.
+  Para usar: var(--nome)
+*/
+:root {
+  --fundo: #121212;       /* fundo da página */
+  --cartao: #1e1e1e;      /* fundo dos cartões */
+  --texto: #e8e8e8;       /* cor do texto */
+  --texto-suave: #a8a8a8; /* texto secundário */
+  --vermelho: #e63946;    /* cor principal */
+  --vermelho-escuro: #9d1f2a;
+  --borda: #333;
+}
+
 /* ===================== PÁGINA INTEIRA ===================== */
 body {
   font-family: Arial, Helvetica, sans-serif; /* tipo de letra */
-  background-color: #f4f6fb;                  /* cor de fundo */
-  color: #222;                                /* cor do texto */
-  line-height: 1.6;                           /* espaço entre linhas */
-  margin: 0;                                  /* tira a margem padrão do navegador */
+  background-color: var(--fundo);
+  color: var(--texto);
+  line-height: 1.6;  /* espaço entre linhas */
+  margin: 0;         /* tira a margem padrão do navegador */
 }
 
 /* ===================== CABEÇALHO ===================== */
 header {
-  background-color: #3b5bdb;
-  color: white;
+  background-color: var(--vermelho-escuro);
   text-align: center;  /* centraliza o texto */
   padding: 24px;       /* espaço INTERNO */
+  border-bottom: 3px solid var(--vermelho);
 }
 
 header h1 {
-  margin: 0 0 12px;    /* cima 0, lados 0, baixo 12px */
+  margin: 0 0 12px;
 }
 
 /* "nav a" = links que estão DENTRO do nav */
@@ -41,6 +56,10 @@ nav a:hover {
   text-decoration: underline;
 }
 
+hr {
+  display: none; /* esconde as linhas horizontais, o tema já separa as áreas */
+}
+
 /* ===================== CONTEÚDO ===================== */
 main {
   max-width: 800px;  /* não deixa o conteúdo ficar largo demais */
@@ -48,37 +67,45 @@ main {
   padding: 16px;
 }
 
-/* Cada seção vira um "cartão" branco */
+/* Cada seção vira um "cartão" escuro */
 section {
-  background-color: white;
-  border-radius: 10px;                       /* cantos arredondados */
+  background-color: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 10px;   /* cantos arredondados */
   padding: 20px;
-  margin-bottom: 20px;                       /* espaço EXTERNO embaixo */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);  /* sombra suave */
+  margin-bottom: 20px;   /* espaço EXTERNO embaixo */
 }
 
 h2 {
-  color: #3b5bdb;
-  border-bottom: 2px solid #dbe4ff;  /* linha embaixo do título */
+  color: var(--vermelho);
+  border-bottom: 2px solid var(--vermelho-escuro);
   padding-bottom: 6px;
 }
 
 a {
-  color: #3b5bdb;
+  color: var(--vermelho);
 }
 
 blockquote {
-  border-left: 4px solid #3b5bdb;
+  border-left: 4px solid var(--vermelho);
   margin-left: 0;
   padding-left: 16px;
   font-style: italic;
-  color: #555;
+  color: var(--texto-suave);
 }
 
 code {
-  background-color: #eef1f7;
+  background-color: #2a2a2a;
+  color: #ff8a8a;
   padding: 2px 6px;
   border-radius: 4px;
+}
+
+mark {
+  background-color: var(--vermelho);
+  color: white;
+  padding: 0 4px;
+  border-radius: 3px;
 }
 
 img {
@@ -93,19 +120,19 @@ table {
 
 th,
 td {                           /* vírgula = aplica nos dois */
-  border: 1px solid #ccc;
+  border: 1px solid var(--borda);
   padding: 8px 12px;
   text-align: left;
 }
 
 th {
-  background-color: #3b5bdb;
+  background-color: var(--vermelho-escuro);
   color: white;
 }
 
 /* :nth-child(even) = linhas pares → efeito "zebrado" */
 tbody tr:nth-child(even) {
-  background-color: #f1f3f9;
+  background-color: #262626;
 }
 
 /* ===================== FORMULÁRIO ===================== */
@@ -117,7 +144,9 @@ textarea {
   width: 100%;
   max-width: 400px;
   padding: 8px;
-  border: 1px solid #bbb;
+  background-color: #2a2a2a;
+  color: var(--texto);
+  border: 1px solid #555;
   border-radius: 6px;
   font-size: 16px;
   box-sizing: border-box;  /* o padding não aumenta a largura total */
@@ -128,11 +157,17 @@ input:focus,
 select:focus,
 textarea:focus {
   outline: none;
-  border-color: #3b5bdb;
+  border-color: var(--vermelho);
+}
+
+/* accent-color pinta a bolinha e a caixinha marcadas */
+input[type="radio"],
+input[type="checkbox"] {
+  accent-color: var(--vermelho);
 }
 
 button {
-  background-color: #3b5bdb;
+  background-color: var(--vermelho);
   color: white;
   border: none;
   padding: 10px 24px;
@@ -142,12 +177,12 @@ button {
 }
 
 button:hover {
-  background-color: #2f4ac0;
+  background-color: var(--vermelho-escuro);
 }
 
 /* ===================== RODAPÉ ===================== */
 footer {
   text-align: center;
-  color: #777;
+  color: var(--texto-suave);
   padding: 16px;
 }
