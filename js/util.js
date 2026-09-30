@@ -1,17 +1,42 @@
 /*
-  util.js = funções "ajudantes" usadas pelas outras páginas.
-  Ficam num arquivo só para não repetir o mesmo código em todo lugar.
+  util.js
+  Funções ajudantes usadas por várias páginas.
+  Precisa ser carregado ANTES dos outros scripts no HTML.
+
+  1. mostrar
+  2. converterParaNumero
+  3. lerNumero e lerInteiro
 */
 
-// Escreve um texto dentro de um elemento da página (uma linha nova a cada chamada).
-//   id    -> o id do elemento no HTML (ex.: "saida")
-//   texto -> o que queremos mostrar
-function mostrar(id, texto) {
-  // document.getElementById procura no HTML o elemento que tem aquele id
-  const caixa = document.getElementById(id);
 
-  // textContent é o texto que aparece dentro do elemento
-  // "+=" significa: pegue o que já tem e ACRESCENTE o novo texto
-  // "\n" é uma quebra de linha
-  caixa.textContent += texto + "\n";
+// 1. mostrar
+// Escreve um texto dentro do elemento com esse id (uma linha por chamada).
+function mostrar(id, texto) {
+  const caixa = document.getElementById(id);
+  caixa.textContent += texto + "\n"; // += acrescenta, \n quebra a linha
+}
+
+
+// 2. converterParaNumero
+// Tudo que o usuário digita chega como TEXTO.
+// Devolve o número, ou null se for vazio, cancelado ou inválido.
+function converterParaNumero(texto) {
+  if (texto === null || texto.trim() === "") {
+    return null; // prompt devolve null quando clicam em Cancelar
+  }
+
+  const numero = Number(texto);
+  return Number.isFinite(numero) ? numero : null; // recusa NaN ("abc")
+}
+
+
+// 3. lerNumero e lerInteiro
+// Recebem um <input> e devolvem o número digitado (ou null).
+function lerNumero(campo) {
+  return converterParaNumero(campo.value);
+}
+
+function lerInteiro(campo) {
+  const numero = lerNumero(campo);
+  return Number.isInteger(numero) ? numero : null; // recusa decimais
 }

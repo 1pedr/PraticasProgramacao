@@ -1,22 +1,32 @@
 <!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
 <html lang="pt-BR">
   <head>
+    <!-- Aceita acentos -->
     <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Operadores em JavaScript</title>
+    <!-- Liga o CSS -->
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
+    <!-- Cabeçalho -->
     <header>
       <h1>Operadores</h1>
       <nav>
         <a href="javascript.html">Início</a> |
         <a href="variaveis.html">Variáveis</a> |
         <a href="entrada-saida.html">Entrada e Saída</a> |
-        <a href="operadores.html">Operadores</a>
+        <a href="operadores.html">Operadores</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="desafio.html">Desafios</a>
       </nav>
     </header>
 
+    <!-- Conteúdo -->
     <main>
       <section>
         <h2>O que são operadores?</h2>
@@ -30,11 +40,13 @@
 
       <section>
         <h2>1. Aritméticos (contas)</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 1.</small></p>
         <pre id="saida-aritmeticos" class="saida"></pre>
       </section>
 
       <section>
         <h2>2. Atribuição (guardar valores)</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 2.</small></p>
         <p>
           O <code>=</code> não significa "igual" da matemática: ele
           <strong>guarda</strong> o valor da direita na variável da esquerda.
@@ -44,12 +56,14 @@
 
       <section>
         <h2>3. Comparação (resultado: true ou false)</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 3.</small></p>
         <pre id="saida-comparacao" class="saida"></pre>
         <p>Regra de ouro: use sempre <code>===</code> e <code>!==</code>.</p>
       </section>
 
       <section>
         <h2>4. Lógicos (combinam condições)</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 4.</small></p>
         <table>
           <thead>
             <tr>
@@ -59,9 +73,21 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td><code>&amp;&amp;</code></td><td>E</td><td>as duas condições são verdadeiras</td></tr>
-            <tr><td><code>||</code></td><td>OU</td><td>pelo menos uma é verdadeira</td></tr>
-            <tr><td><code>!</code></td><td>NÃO</td><td>inverte o valor</td></tr>
+            <tr>
+              <td><code>&amp;&amp;</code></td>
+              <td>E</td>
+              <td>as duas condições são verdadeiras</td>
+            </tr>
+            <tr>
+              <td><code>||</code></td>
+              <td>OU</td>
+              <td>pelo menos uma é verdadeira</td>
+            </tr>
+            <tr>
+              <td><code>!</code></td>
+              <td>NÃO</td>
+              <td>inverte o valor</td>
+            </tr>
           </tbody>
         </table>
         <pre id="saida-logicos" class="saida"></pre>
@@ -69,19 +95,24 @@
 
       <section>
         <h2>5. O + com texto</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 5.</small></p>
         <pre id="saida-texto" class="saida"></pre>
       </section>
 
       <section>
         <h2>6. Precedência (quem é feito primeiro)</h2>
+        <p><small>Código desta seção: <code>js/operadores.js</code>, seção 6.</small></p>
         <pre id="saida-precedencia" class="saida"></pre>
       </section>
     </main>
 
+    <!-- Rodapé -->
     <footer>
       <p>&copy; 2026 - Práticas de Programação</p>
     </footer>
 
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
     <script src="js/util.js"></script>
     <script src="js/operadores.js"></script>
   </body>

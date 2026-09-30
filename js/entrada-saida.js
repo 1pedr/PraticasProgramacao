@@ -1,35 +1,39 @@
 /*
-  ENTRADA E SAÍDA
-  Saída   = o programa MOSTRA algo para o usuário.
-  Entrada = o usuário ENVIA algo para o programa.
+  Entrada e saída
+  Saída: o programa MOSTRA algo. Entrada: o usuário ENVIA algo.
+
+  1. console.log
+  2. alert
+  3. Escrever na página
+  4. prompt
+  5. confirm
+  6. Campo de formulário
+  7. Texto vira número
+
+  Usa: util.js (mostrar)
 */
 
-// ===================== SAÍDA =====================
 
-// ---------- 1. console.log: mostra no console do navegador ----------
-// Abra o console com F12 (aba "Console"). Serve muito para testar seu código.
-console.log("Olá! Esta mensagem aparece no console (F12).");
+// 1. console.log: mensagem no console (F12 > Console). Ótimo para testar.
+function mostrarNoConsole() {
+  console.log("Olá! Esta mensagem aparece no console (F12).");
+}
 
-// ---------- 2. alert: abre uma janelinha com um aviso ----------
-// A página só continua depois que o usuário clica em OK.
-document.getElementById("btn-alert").addEventListener("click", function () {
+
+// 2. alert: janelinha de aviso. A página espera o OK.
+function mostrarAlert() {
   alert("Este é um alert!");
-});
-/*
-  addEventListener("click", função) = "quando clicarem neste elemento,
-  execute esta função". O botão foi achado pelo id (btn-alert) no HTML.
-*/
+}
 
-// ---------- 3. Escrever dentro da página ----------
-// É o jeito mais usado em sites de verdade.
-mostrar("saida-pagina", "Este texto foi escrito na página pelo JavaScript.");
 
-// ===================== ENTRADA =====================
+// 3. Escrever na página: o jeito usado em sites de verdade
+function escreverNaPagina() {
+  mostrar("saida-pagina", "Este texto foi escrito na página pelo JavaScript.");
+}
 
-// ---------- 4. prompt: pergunta algo numa janelinha ----------
-document.getElementById("btn-prompt").addEventListener("click", function () {
-  // O que o usuário digitar fica guardado na variável "resposta".
-  // Se ele clicar em Cancelar, o valor é null.
+
+// 4. prompt: pergunta numa janelinha. Cancelar devolve null.
+function perguntarNome() {
   const resposta = prompt("Qual é o seu nome?");
 
   if (resposta) {
@@ -37,31 +41,41 @@ document.getElementById("btn-prompt").addEventListener("click", function () {
   } else {
     mostrar("saida-prompt", "Você cancelou ou não digitou nada.");
   }
-});
+}
 
-// ---------- 5. confirm: pergunta sim ou não ----------
-document.getElementById("btn-confirm").addEventListener("click", function () {
-  const aceitou = confirm("Você gosta de programar?"); // true (OK) ou false (Cancelar)
+
+// 5. confirm: pergunta sim ou não. OK = true, Cancelar = false.
+function fazerPergunta() {
+  const aceitou = confirm("Você gosta de programar?");
   mostrar("saida-confirm", "Resposta: " + aceitou);
-});
+}
 
-// ---------- 6. Campo de formulário (o mais usado na prática) ----------
-document.getElementById("btn-campo").addEventListener("click", function () {
-  // .value é o que está escrito dentro do campo
+
+// 6. Campo de formulário: .value é o que está escrito no campo
+function lerCampoNome() {
   const campo = document.getElementById("campo-nome");
-  const valor = campo.value;
+  mostrar("saida-campo", `Você digitou: ${campo.value}`);
+}
 
-  mostrar("saida-campo", `Você digitou: ${valor}`);
-});
 
-/*
-  ATENÇÃO: tudo que vem de prompt e de campos é TEXTO (string),
-  mesmo que o usuário digite um número. Para fazer conta, converta:
-    Number("5")  -> 5
-*/
-document.getElementById("btn-soma").addEventListener("click", function () {
+// 7. Texto vira número
+// Tudo que vem de prompt e de campos é TEXTO. Para fazer conta: Number("5") -> 5
+function somarCampos() {
   const a = Number(document.getElementById("num-a").value);
   const b = Number(document.getElementById("num-b").value);
 
   mostrar("saida-soma", `${a} + ${b} = ${a + b}`);
-});
+}
+
+
+// Ligando à página
+// Estes dois rodam assim que a página abre:
+mostrarNoConsole();
+escreverNaPagina();
+
+// Os outros rodam no clique. addEventListener = "quando clicar, execute esta função".
+document.getElementById("btn-alert").addEventListener("click", mostrarAlert);
+document.getElementById("btn-prompt").addEventListener("click", perguntarNome);
+document.getElementById("btn-confirm").addEventListener("click", fazerPergunta);
+document.getElementById("btn-campo").addEventListener("click", lerCampoNome);
+document.getElementById("btn-soma").addEventListener("click", somarCampos);

@@ -1,22 +1,32 @@
 <!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
 <html lang="pt-BR">
   <head>
+    <!-- Aceita acentos -->
     <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Variáveis em JavaScript</title>
+    <!-- Liga o CSS -->
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
+    <!-- Cabeçalho -->
     <header>
       <h1>Variáveis</h1>
       <nav>
         <a href="javascript.html">Início</a> |
         <a href="variaveis.html">Variáveis</a> |
         <a href="entrada-saida.html">Entrada e Saída</a> |
-        <a href="operadores.html">Operadores</a>
+        <a href="operadores.html">Operadores</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="desafio.html">Desafios</a>
       </nav>
     </header>
 
+    <!-- Conteúdo -->
     <main>
       <section>
         <h2>O que é uma variável?</h2>
@@ -33,6 +43,7 @@
 
       <section>
         <h2>1. Criando variáveis</h2>
+        <p><small>Código desta seção: <code>js/variaveis.js</code>, seção 1.</small></p>
         <ul>
           <li><code>let</code>: o valor pode mudar depois.</li>
           <li><code>const</code>: o valor não muda (constante).</li>
@@ -44,11 +55,13 @@
 
       <section>
         <h2>2. Mudando o valor</h2>
+        <p><small>Código desta seção: <code>js/variaveis.js</code>, seção 2.</small></p>
         <pre id="saida-mudar" class="saida"></pre>
       </section>
 
       <section>
         <h2>3. Tipos de valores</h2>
+        <p><small>Código desta seção: <code>js/variaveis.js</code>, seção 3.</small></p>
         <table>
           <thead>
             <tr>
@@ -58,11 +71,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>string</td><td>texto</td><td><code>"Olá"</code></td></tr>
-            <tr><td>number</td><td>número</td><td><code>42.5</code></td></tr>
-            <tr><td>boolean</td><td>verdadeiro ou falso</td><td><code>true</code></td></tr>
-            <tr><td>undefined</td><td>sem valor ainda</td><td><code>let x;</code></td></tr>
-            <tr><td>null</td><td>vazio de propósito</td><td><code>null</code></td></tr>
+            <tr>
+              <td>string</td>
+              <td>texto</td>
+              <td><code>"Olá"</code></td>
+            </tr>
+            <tr>
+              <td>number</td>
+              <td>número</td>
+              <td><code>42.5</code></td>
+            </tr>
+            <tr>
+              <td>boolean</td>
+              <td>verdadeiro ou falso</td>
+              <td><code>true</code></td>
+            </tr>
+            <tr>
+              <td>undefined</td>
+              <td>sem valor ainda</td>
+              <td><code>let x;</code></td>
+            </tr>
+            <tr>
+              <td>null</td>
+              <td>vazio de propósito</td>
+              <td><code>null</code></td>
+            </tr>
           </tbody>
         </table>
         <p>O <code>typeof</code> mostra o tipo de cada valor:</p>
@@ -71,29 +104,32 @@
 
       <section>
         <h2>4. Juntando texto com variáveis</h2>
+        <p><small>Código desta seção: <code>js/variaveis.js</code>, seção 4.</small></p>
         <pre id="saida-juntar" class="saida"></pre>
       </section>
 
       <section>
         <h2>5. Regras para nomes</h2>
+        <p><small>Código desta seção: <code>js/variaveis.js</code>, seção 5.</small></p>
         <ul>
           <li>Não pode começar com número nem ter espaço.</li>
-          <li>Maiúscula e minúscula são diferentes (<code>idade</code> ≠ <code>Idade</code>).</li>
+          <li>
+            Maiúscula e minúscula são diferentes (<code>idade</code> ≠
+            <code>Idade</code>).
+          </li>
           <li>Use <strong>camelCase</strong>: <code>nomeCompleto</code>.</li>
         </ul>
         <pre id="saida-nomes" class="saida"></pre>
       </section>
     </main>
 
+    <!-- Rodapé -->
     <footer>
       <p>&copy; 2026 - Práticas de Programação</p>
     </footer>
 
-    <!--
-      Os scripts ficam no FINAL do body: assim o navegador já criou todos os
-      elementos (os <pre>) antes do JavaScript tentar escrever neles.
-      Ordem importa: util.js primeiro, porque variaveis.js usa a função mostrar().
-    -->
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
     <script src="js/util.js"></script>
     <script src="js/variaveis.js"></script>
   </body>

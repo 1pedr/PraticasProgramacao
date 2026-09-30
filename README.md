@@ -4,15 +4,18 @@ Anotações e exercícios do curso de Práticas de Programação (HTML, CSS e Ja
 
 ## Páginas
 
-| Arquivo | Conteúdo |
-| --- | --- |
-| `introducao.html` | Página inicial do curso |
-| `basico.html` | HTML básico: textos, listas, links, imagens, tabela e formulário |
-| `javascript.html` | Introdução ao JavaScript |
-| `variaveis.html` | Variáveis |
-| `entrada-saida.html` | Entrada e saída de dados |
-| `operadores.html` | Operadores |
-| `desafio.html` | Desafio: pedir dois números com `prompt()` e mostrar a soma com `alert()` |
+| Arquivo              | Conteúdo                                                         |
+| -------------------- | ---------------------------------------------------------------- |
+| `introducao.html`    | Página inicial do curso                                          |
+| `basico.html`        | HTML básico: textos, listas, links, imagens, tabela e formulário |
+| `javascript.html`    | Introdução ao JavaScript                                         |
+| `variaveis.html`     | Variáveis                                                        |
+| `entrada-saida.html` | Entrada e saída de dados                                         |
+| `operadores.html`    | Operadores                                                       |
+| `condicionais.html`  | Decisões com if/else e operador ternário                         |
+| `verificador.html`   | Verificador interativo de notas                                  |
+| `switch.html`        | Switch case: cases, break, default e cases empilhados           |
+| `desafio.html`       | Desafio com prompt e calculadora de operações aritméticas        |
 
 ## Estrutura
 

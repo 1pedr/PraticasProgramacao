@@ -1,25 +1,36 @@
 <!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
 <html lang="pt-BR">
   <head>
+    <!-- Aceita acentos -->
     <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Desafio: Soma</title>
+    <title>Desafios de Operações</title>
+    <!-- Liga o CSS -->
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
+    <!-- Cabeçalho -->
     <header>
-      <h1>Desafio: Soma</h1>
+      <h1>Desafios de Operações</h1>
       <nav>
         <a href="javascript.html">Início</a> |
         <a href="variaveis.html">Variáveis</a> |
         <a href="entrada-saida.html">Entrada e Saída</a> |
         <a href="operadores.html">Operadores</a>
+        | <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="desafio.html">Desafios</a>
       </nav>
     </header>
 
+    <!-- Conteúdo -->
     <main>
       <section>
         <h2>Enunciado</h2>
+        <p><small>Código desta seção: <code>js/desafio.js</code>, seção 1.</small></p>
         <p>
           Peça dois números com <code>prompt()</code> e mostre a soma com
           <code>alert()</code>.
@@ -30,12 +41,49 @@
         </p>
         <button id="btn-desafio">Testar desafio</button>
       </section>
+
+      <section>
+        <h2>Calculadora de operações</h2>
+        <p><small>Código desta seção: <code>js/desafio.js</code>, seção 2.</small></p>
+        <p>Digite dois números e escolha uma operação.</p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-operacoes" novalidate>
+          <label for="numero-a">Primeiro número:</label><br />
+          <input type="number" id="numero-a" step="any" placeholder="Ex.: 12" />
+          <br /><br />
+
+          <label for="numero-b">Segundo número:</label><br />
+          <input type="number" id="numero-b" step="any" placeholder="Ex.: 3" />
+          <br /><br />
+
+          <!-- data-operacao diz ao JS qual conta fazer -->
+          <button type="submit" data-operacao="somar">Somar</button>
+          <button type="submit" data-operacao="subtrair">Subtrair</button>
+          <button type="submit" data-operacao="multiplicar">Multiplicar</button>
+          <button type="submit" data-operacao="dividir">Dividir</button>
+          <button type="submit" data-operacao="resto">Resto</button>
+          <button type="submit" data-operacao="potencia">Potência</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <p
+          id="resultado-operacao"
+          class="saida"
+          role="status"
+          aria-live="polite"
+        ></p>
+      </section>
     </main>
 
+    <!-- Rodapé -->
     <footer>
       <p>&copy; 2026 - Práticas de Programação</p>
     </footer>
 
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
     <script src="js/desafio.js"></script>
   </body>
 </html>
