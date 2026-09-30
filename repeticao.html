@@ -1,0 +1,172 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repetição em JavaScript</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <h1>Repetição: while e do...while</h1>
+      <nav>
+        <a href="javascript.html">Início</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="desafio.html">Desafios</a>
+      </nav>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <section>
+        <h2>Por que repetir?</h2>
+        <p>
+          Para não escrever o mesmo código várias vezes. Uma estrutura de
+          repetição (também chamada de <strong>laço</strong> ou
+          <strong>loop</strong>) executa um bloco de novo e de novo, até a
+          <strong>condição de parada</strong> ficar falsa.
+        </p>
+      </section>
+
+      <section>
+        <h2>1. while (enquanto)</h2>
+        <p>Testa a condição <strong>antes</strong> de cada rodada.</p>
+        <pre class="saida">
+let contador = 1; // variável contadora
+let soma = 0;     // variável acumuladora
+
+while (contador &lt;= 10) {
+  console.log(contador);
+  soma += contador;   // soma = soma + contador
+  contador++;         // contador = contador + 1
+}
+
+console.log("O somatório é: " + soma); // 55</pre
+        >
+        <ul>
+          <li>
+            Leia assim: <em>"enquanto contador for menor ou igual a 10,
+            faça"</em>.
+          </li>
+          <li>
+            <strong>Contadora</strong>: soma um valor fixo a cada rodada
+            (<code>contador++</code>, ou <code>contador += 2</code> para contar
+            de 2 em 2).
+          </li>
+          <li>
+            <strong>Acumuladora</strong>: soma o que quer acumular
+            (<code>soma += contador</code>).
+          </li>
+          <li>
+            Cuidado: se o contador nunca mudar, a condição nunca fica falsa e o
+            laço não para (<strong>loop infinito</strong>). A página trava.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. do...while (faça... enquanto)</h2>
+        <p>
+          Mesma ideia, mas a condição fica no <strong>fim</strong>. Por isso o
+          bloco roda <strong>pelo menos uma vez</strong>, mesmo que a condição
+          seja falsa. Repare no <code>;</code> depois do <code>while</code>.
+        </p>
+        <pre class="saida">
+let contador = 1;
+let soma = 0;
+
+do {
+  console.log(contador);
+  soma += contador;
+  contador++;
+} while (contador &lt;= 10);
+
+console.log("O somatório é: " + soma); // 55</pre
+        >
+      </section>
+
+      <section>
+        <h2>3. Teste de mesa</h2>
+        <p>
+          Montar uma tabela com o valor das variáveis a cada rodada é chamado de
+          <strong>teste de mesa</strong> (ou teste chinês). Serve para entender
+          e conferir o que o laço faz.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/repeticao.js</code>, seções 1 a 3.</small>
+        </p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-contagem" novalidate>
+          <label for="campo-fim">Contar de 1 até:</label>
+          <input type="number" id="campo-fim" min="1" max="100" step="1" value="10" />
+          <br /><br />
+          <label for="campo-passo">De quanto em quanto:</label>
+          <input type="number" id="campo-passo" min="1" max="10" step="1" value="1" />
+          <br /><br />
+          <!-- data-estrutura diz ao JS qual laço usar -->
+          <button type="submit" data-estrutura="while">Rodar com while</button>
+          <button type="submit" data-estrutura="do...while">Rodar com do...while</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre id="resultado-contagem" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section>
+        <h2>4. A diferença na prática</h2>
+        <p>
+          A condição é <code>contador &lt;= 10</code>. Comece o contador em
+          <strong>11</strong>: a condição já nasce falsa. O
+          <code>while</code> não roda nenhuma vez; o <code>do...while</code>
+          roda uma.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/repeticao.js</code>, seção 4.</small>
+        </p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-diferenca" novalidate>
+          <label for="campo-inicio">Contador começa em:</label>
+          <input type="number" id="campo-inicio" min="0" max="100" step="1" value="11" />
+          <button type="submit">Comparar</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre id="resultado-diferenca" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section>
+        <h2>while ou do...while?</h2>
+        <p>
+          Na maioria das vezes, <code>while</code>. O <code>do...while</code> é
+          pouco usado, porque é raro querer rodar um bloco mesmo com a condição
+          falsa. Um caso comum: pedir um dado ao usuário e repetir a pergunta
+          enquanto a resposta for inválida (é preciso perguntar pelo menos uma
+          vez).
+        </p>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
+    <script src="js/repeticao.js"></script>
+  </body>
+</html>

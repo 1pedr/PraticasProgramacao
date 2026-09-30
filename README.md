@@ -15,6 +15,7 @@ Anotações e exercícios do curso de Práticas de Programação (HTML, CSS e Ja
 | `condicionais.html`  | Decisões com if/else e operador ternário                         |
 | `verificador.html`   | Verificador interativo de notas                                  |
 | `switch.html`        | Switch case: cases, break, default e cases empilhados           |
+| `repeticao.html`     | Repetição com while e do...while, contadora, acumuladora e teste de mesa |
 | `desafio.html`       | Desafio com prompt e calculadora de operações aritméticas        |
 
 ## Estrutura
