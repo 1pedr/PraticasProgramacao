@@ -17,8 +17,14 @@ Anotações e exercícios do curso de Práticas de Programação (HTML, CSS e Ja
 | `switch.html`        | Switch case: cases, break, default e cases empilhados           |
 | `repeticao.html`     | Repetição com while e do...while, contadora, acumuladora e teste de mesa |
 | `for.html`           | Laço for (contar, tabuada, regressiva), for...in (objetos) e for...of (arrays e textos) |
+| `arrays.html`        | Arrays: criar, acessar, push, unshift, pop, shift, splice e sort (laboratório) |
+| `matrizes.html`      | Arrays multidimensionais: [linha][coluna], console.table e for aninhado |
+| `funcoes.html`       | Funções: declaração, expressão, arrow, construtora (new) e geradora (yield) |
+| `recursividade.html` | Recursividade: caso base, fatorial, for x recursão e onde se usa |
+| `pratica.html`       | Prática: jogo da velha com matriz e funções, Fibonacci recursivo x for |
 | `desafio.html`       | Desafio com prompt e calculadora de operações aritméticas        |
 | `glossario.html`     | Glossário de tags HTML e comandos JS do caderno, com busca       |
+| `claude-code.html`   | Guia básico do Claude Code: pedidos prontos, comandos e atalhos  |
 
 ## Estrutura
 
