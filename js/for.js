@@ -15,7 +15,7 @@
 // 1. Contar e somar (com teste de mesa)
 // O mesmo exemplo do while, agora com for.
 function contarComFor(fim) {
-  let soma = 0; // acumuladora (aula de repetição): guarda a soma
+  let soma = 0; // acumuladora (página Repetição): guarda a soma
   let numeros = "";
   let tabela = coluna("i") + "soma\n";
 
@@ -46,7 +46,7 @@ function tratarContagem(evento) {
 
   const resultado = contarComFor(fim);
 
-  // Template string: crases ` ` e ${variável} (aula de variáveis)
+  // Template string: crases ` ` e ${variável} (página Variáveis)
   saida.textContent =
     `for (let i = 1; i <= ${fim}; i++)\n\n` +
     `Números: ${resultado.numeros}\n` +
@@ -119,7 +119,7 @@ function listarPropriedades(pessoa) {
 
   for (let atributo in pessoa) {
     nomes += atributo + "\n";                              // só o nome
-    texto += atributo + " -> " + pessoa[atributo] + "\n";  // nome e valor, como na aula
+    texto += atributo + " -> " + pessoa[atributo] + "\n";  // nome e valor
   }
 
   return { nomes, texto };

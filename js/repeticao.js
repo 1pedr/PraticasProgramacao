@@ -6,7 +6,7 @@
   2. Contar com do...while
   3. Mostrar o resultado e o teste de mesa
   4. A diferença: condição falsa desde o começo
-  5. Média de N notas (exemplo da aula, com prompt)
+  5. Média de N notas (com prompt)
 
   Usa: util.js (lerInteiro, converterParaNumero, converterParaInteiro, coluna)
 */
@@ -135,7 +135,7 @@ function tratarDiferenca(evento) {
 }
 
 
-// 5. Média de N notas (exemplo da aula, com prompt)
+// 5. Média de N notas (com prompt)
 // Pergunta quantas notas, lê uma por rodada e acumula na soma.
 
 // toFixed(2) deixa 2 casas; Number() tira os zeros do fim.
@@ -192,7 +192,7 @@ function mediaDasNotas() {
   const media = soma / qtd;
 
   saida.textContent =
-    `Teste de mesa (como a tabela do Excel da aula):\n${tabela}\n` +
+    `Teste de mesa (como uma tabela do Excel):\n${tabela}\n` +
     `Condição final: ${contador} <= ${qtd} é false, o laço para.\n\n` +
     `Soma: ${arredondar(soma)}\n` +
     `Média: ${arredondar(soma)} / ${qtd} = ${media.toFixed(2)}`;

@@ -198,7 +198,7 @@ function tratarSalario(evento) {
 // 4. Aumento por cargo (switch com texto)
 // O texto precisa ser idêntico ao do case, com maiúscula e acento.
 // Devolve o aumento como fração (1 = 100%), ou null se o cargo não existir.
-// O default avisa com alert(), igual na aula.
+// O default avisa com alert().
 function obterAumentoPorCargo(cargo) {
   let aumento;
 
