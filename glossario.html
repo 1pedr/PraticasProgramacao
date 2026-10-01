@@ -30,7 +30,13 @@
         <a href="verificador.html">Verificador</a> |
         <a href="repeticao.html">Repetição</a> |
         <a href="for.html">For</a> |
-        <a href="glossario.html" aria-current="page">Glossário</a>
+        <a href="arrays.html">Arrays</a> |
+        <a href="matrizes.html">Matrizes</a> |
+        <a href="funcoes.html">Funções</a> |
+        <a href="recursividade.html">Recursividade</a> |
+        <a href="pratica.html">Prática</a> |
+        <a href="glossario.html" aria-current="page">Glossário</a> |
+        <a href="claude-code.html">Claude Code</a>
       </nav>
 
       <!-- Título desta página (só UM h1 por página) -->
@@ -169,6 +175,8 @@
             <tr><td><code>&lt;option&gt;</code></td><td>Uma opção dentro do select.</td><td><code>&lt;option&gt;Gerente&lt;/option&gt;</code></td></tr>
             <tr><td><code>&lt;textarea&gt;</code></td><td>Campo de texto com várias linhas.</td><td>&nbsp;</td></tr>
             <tr><td><code>&lt;button&gt;</code></td><td>Botão. Dentro do form, <code>type="submit"</code> envia.</td><td><code>&lt;button type="submit"&gt;</code></td></tr>
+            <tr><td><code>&lt;input type="button"&gt;</code></td><td>Botão feito com input; o <code>value</code> é o texto.</td><td><code>&lt;input type="button" value="Somar"&gt;</code></td></tr>
+            <tr><td><code>onclick</code></td><td>Chama uma função JS ao clicar, direto no HTML.</td><td><code>onclick="somar()"</code></td></tr>
           </tbody>
         </table>
       </section>
@@ -267,10 +275,39 @@
             <tr><td><code>function</code></td><td>Bloco de código com nome, que roda quando é chamado.</td><td><code>function montarTabuada(numero) { }</code></td></tr>
             <tr><td>parâmetro</td><td>Valor que a função recebe, entre <code>( )</code>.</td><td><code>numero</code> em <code>montarTabuada(numero)</code></td></tr>
             <tr><td><code>return</code></td><td>Devolve um resultado e encerra a função.</td><td><code>return soma;</code></td></tr>
+            <tr><td><code>argumento</code></td><td>Valor passado ao chamar a função.</td><td><code>2</code> e <code>5</code> em <code>somar(2, 5)</code></td></tr>
+            <tr><td><code>hoisting</code></td><td>Função de declaração pode ser chamada antes de aparecer no código.</td><td><code>somar(1, 2)</code> antes do <code>function somar</code></td></tr>
+            <tr><td><code>escopo</code></td><td>Onde algo existe. Função criada dentro de outra só existe lá dentro.</td><td><code>quadrado</code> dentro de <code>addQuadrado</code></td></tr>
+            <tr><td><code>function ( ) { }</code></td><td>Função de expressão: guardada numa variável.</td><td><code>const somar = function (x, y) { ... }</code></td></tr>
+            <tr><td><code>=></code></td><td>Arrow function: jeito curto de escrever função.</td><td><code>const somar = (x, y) =&gt; x + y</code></td></tr>
+            <tr><td><code>new</code></td><td>Chama uma função construtora e cria um objeto novo.</td><td><code>new Pessoa("Ana", "Silva")</code></td></tr>
+            <tr><td><code>this</code></td><td>Dentro da construtora, é o objeto que está sendo criado.</td><td><code>this.nome = nome</code></td></tr>
+            <tr><td><code>function*</code></td><td>Função geradora: pausa em cada <code>yield</code>.</td><td><code>function* contar() { yield 1; }</code></td></tr>
+            <tr><td><code>yield</code></td><td>Pausa a geradora e entrega um valor.</td><td><code>yield 1</code></td></tr>
+            <tr><td><code>.next()</code></td><td>Continua a geradora. Devolve <code>{ value, done }</code>.</td><td><code>{ value: 1, done: false }</code></td></tr>
+            <tr><td><code>recursão</code></td><td>Função que chama a si mesma com um problema menor.</td><td><code>return x * fatorial(x - 1)</code></td></tr>
+            <tr><td><code>caso base</code></td><td>Condição que faz a recursão parar.</td><td><code>if (x &lt;= 1) return 1</code></td></tr>
+            <tr><td><code>stack overflow</code></td><td>Erro de chamadas demais (recursão sem caso base).</td><td><code>Maximum call stack size exceeded</code></td></tr>
+            <tr><td><code>Fibonacci</code></td><td>Sequência em que cada número é a soma dos dois anteriores.</td><td>0, 1, 1, 2, 3, 5, 8...</td></tr>
+            <tr><td><code>parseInt()</code></td><td>Texto → número inteiro (corta os decimais).</td><td><code>parseInt("2.9")</code> → 2</td></tr>
+            <tr><td><code>.innerHTML</code></td><td>Escreve dentro de um elemento (aceita tags HTML).</td><td><code>res.innerHTML = "Oi"</code></td></tr>
+            <tr><td><code>onload</code></td><td>Evento "a página terminou de carregar".</td><td><code>&lt;body onload="iniciar()"&gt;</code></td></tr>
             <tr><td>objeto <code>{ }</code></td><td>Vários valores com nome, juntos.</td><td><code>{ nome: "Orion", nota: 8 }</code></td></tr>
             <tr><td><code>.</code> e <code>[ ]</code></td><td>Pegam um valor do objeto.</td><td><code>pessoa.nome</code> = <code>pessoa["nome"]</code></td></tr>
             <tr><td>array <code>[ ]</code></td><td>Lista de valores. Posição (índice) começa em 0.</td><td><code>carros[0]</code> → "Gol"</td></tr>
             <tr><td><code>.length</code></td><td>Tamanho de um array ou texto.</td><td><code>carros.length</code> → 4</td></tr>
+            <tr><td><code>new Array()</code></td><td>Outro jeito de criar array. Prefira <code>[ ]</code>.</td><td><code>new Array(10)</code> → 10 posições vazias</td></tr>
+            <tr><td><code>.push()</code></td><td>Adiciona no fim. Devolve o novo tamanho.</td><td><code>carros.push("Fiesta")</code></td></tr>
+            <tr><td><code>.unshift()</code></td><td>Adiciona no começo.</td><td><code>carros.unshift("Palio")</code></td></tr>
+            <tr><td><code>.pop()</code></td><td>Remove o último. Devolve o removido.</td><td><code>carros.pop()</code></td></tr>
+            <tr><td><code>.shift()</code></td><td>Remove o primeiro. Devolve o removido.</td><td><code>carros.shift()</code></td></tr>
+            <tr><td><code>.splice()</code></td><td>Insere, troca ou exclui numa posição: (posição, quantos remover, item).</td><td><code>carros.splice(1, 1, "Uno")</code></td></tr>
+            <tr><td><code>.sort()</code></td><td>Ordena (compara como texto!).</td><td><code>idades.sort()</code></td></tr>
+            <tr><td><code>console.table()</code></td><td>Mostra um array como tabela no Console (F12).</td><td><code>console.table(carros)</code></td></tr>
+            <tr><td><code>array de arrays</code></td><td>Array cujos itens são arrays (matriz).</td><td><code>[["João", 24], ["Maria", 30]]</code></td></tr>
+            <tr><td><code>[i][j]</code></td><td>Acessa linha <code>i</code>, coluna <code>j</code> de uma matriz.</td><td><code>funcionarios[0][2]</code> → 1800</td></tr>
+            <tr><td><code>array de objetos</code></td><td>Lista em que cada item é um objeto <code>{ }</code>.</td><td><code>pessoas[2].nome</code> → "José"</td></tr>
+            <tr><td><code>for aninhado</code></td><td>Um for dentro de outro: o de dentro roda inteiro a cada volta do de fora.</td><td>linhas (i) e colunas (j)</td></tr>
           </tbody>
         </table>
       </section>
@@ -317,6 +354,8 @@
             <tr><td><code>.replace()</code></td><td>Troca um pedaço do texto.</td><td><code>"8,5".replace(",", ".")</code></td></tr>
             <tr><td><code>.padEnd()</code></td><td>Completa com espaços até um tamanho.</td><td>alinhar o teste de mesa</td></tr>
             <tr><td><code>.includes()</code></td><td>O texto contém este pedaço?</td><td><code>"Gran".includes("ra")</code> → true</td></tr>
+            <tr><td><code>.repeat()</code></td><td>Repete um texto N vezes.</td><td><code>"ab".repeat(3)</code> → "ababab"</td></tr>
+            <tr><td><code>.join()</code></td><td>Junta os itens de um array num texto.</td><td><code>["a", "b"].join("-")</code> → "a-b"</td></tr>
             <tr><td><code>.toLowerCase()</code></td><td>Deixa tudo minúsculo.</td><td><code>"UL".toLowerCase()</code> → "ul"</td></tr>
           </tbody>
         </table>

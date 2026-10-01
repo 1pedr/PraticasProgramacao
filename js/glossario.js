@@ -1,6 +1,7 @@
 /*
   Glossário: busca
-  Esconde as linhas cuja coluna "Termo" não tem o texto digitado.
+  Esconde as linhas cuja 1ª coluna não tem o texto digitado.
+  Usado no Glossário e no Guia do Claude Code (mesmos ids).
 
   1. Filtrar as linhas
 */
@@ -15,7 +16,7 @@ function filtrar() {
   const linhas = document.querySelectorAll("tbody tr");
   let encontradas = 0; // contadora
 
-  // for...of: passa por cada linha (aula de for)
+  // for...of: passa por cada linha (página For)
   for (let linha of linhas) {
     // querySelector("td"): a 1ª célula da linha, a coluna "Termo"
     const termo = linha.querySelector("td").textContent.toLowerCase();
@@ -26,7 +27,7 @@ function filtrar() {
     }
   }
 
-  // Ternário: campo vazio não mostra nada (aula de condicionais)
+  // Ternário: campo vazio não mostra nada (página Condicionais)
   document.getElementById("resultado-busca").textContent =
     busca === "" ? "" : `${encontradas} resultado(s) para "${busca}"`;
 }
