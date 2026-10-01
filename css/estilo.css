@@ -150,6 +150,24 @@ th {
   color: white;
 }
 
+/* Tabuleiro do jogo da velha: casas quadradas e centralizadas */
+.tabuleiro {
+  width: auto;          /* não estica como as outras tabelas */
+  margin-bottom: 16px;
+}
+
+.tabuleiro tr:nth-child(even) {
+  background-color: transparent;  /* sem o efeito zebrado das outras tabelas */
+}
+
+.tabuleiro td {
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
 /* Código comprido quebra a linha em vez de vazar no celular */
 td code {
   overflow-wrap: anywhere;
@@ -203,6 +221,13 @@ button {
 
 button:hover {
   background-color: var(--vermelho-escuro);
+}
+
+/* Grupo de botões: lado a lado, com espaço, e quebram a linha sem grudar */
+.botoes {
+  display: flex;      /* coloca os filhos lado a lado */
+  flex-wrap: wrap;    /* se não couber, desce para a linha de baixo */
+  gap: 8px;           /* espaço entre os botões */
 }
 
 /* ===================== SAÍDA DO JAVASCRIPT ===================== */

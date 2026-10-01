@@ -1,0 +1,255 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prática: jogo da velha e Fibonacci</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho: igual em todas as páginas -->
+    <header>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
+      <nav>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="arrays.html">Arrays</a> |
+        <a href="matrizes.html">Matrizes</a> |
+        <a href="funcoes.html">Funções</a> |
+        <a href="recursividade.html">Recursividade</a> |
+        <a href="pratica.html" aria-current="page">Prática</a> |
+        <a href="glossario.html">Glossário</a> |
+        <a href="claude-code.html">Claude Code</a>
+      </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Prática: coleções e funções</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <!-- Menu desta página -->
+      <nav>
+        <a href="#velha">Jogo da velha</a> | <a href="#como-funciona">Como funciona</a> |
+        <a href="#melhorias">Melhorias</a> | <a href="#fibonacci">Fibonacci</a> |
+        <a href="#desafio">Desafio</a>
+      </nav>
+
+      <section>
+        <h2>O que esta página junta</h2>
+        <table>
+          <thead>
+            <tr><th>Conceito</th><th>Onde aparece aqui</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><a href="matrizes.html">Matriz</a></td><td>o tabuleiro 3x3</td></tr>
+            <tr><td><a href="for.html">for aninhado</a></td><td>criar e desenhar o tabuleiro</td></tr>
+            <tr><td><a href="funcoes.html">Funções</a></td><td>iniciar, exibir, jogar, checar: uma tarefa cada</td></tr>
+            <tr><td><a href="condicionais.html">Condicionais</a></td><td>validar a jogada e decidir o vencedor</td></tr>
+            <tr><td><a href="recursividade.html">Recursividade</a></td><td>a sequência de Fibonacci</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="velha">
+        <h2>1. Jogo da velha</h2>
+        <p>Dois jogadores, X e O. Digite a linha e a coluna (de 1 a 3) e clique em Marcar.</p>
+
+        <!-- O JS desenha o tabuleiro aqui -->
+        <div id="board"></div>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-jogada" novalidate>
+          <label for="campo-linha">Linha:</label>
+          <input type="number" id="campo-linha" min="1" max="3" step="1" />
+          <br /><br />
+          <label for="campo-coluna">Coluna:</label>
+          <input type="number" id="campo-coluna" min="1" max="3" step="1" />
+          <br /><br />
+          <div class="botoes">
+            <button type="submit">Marcar</button>
+            <button type="button" id="btn-novo-jogo">Novo jogo</button>
+          </div>
+        </form>
+
+        <!-- Vez de quem jogar e o resultado -->
+        <p id="aviso" class="saida" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="como-funciona">
+        <h2>2. Como funciona</h2>
+        <p>
+          <strong>O tabuleiro é uma matriz de números</strong>: 0 = vazio,
+          1 = X, -1 = O. Assim, uma linha completa <strong>soma 3</strong> (X
+          ganhou) ou <strong>-3</strong> (O ganhou).
+        </p>
+        <pre class="saida">
+        coluna 1  coluna 2  coluna 3
+linha 1 [   1,       0,       -1  ]     X  —  O
+linha 2 [   1,      -1,        0  ]     X  O  —
+linha 3 [   1,       0,        0  ]     X  —  —
+           soma da coluna 1 = 3  -&gt;  X ganhou</pre
+        >
+        <p>Cada função faz <strong>uma</strong> tarefa:</p>
+        <table>
+          <thead>
+            <tr><th>Função</th><th>Tarefa</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>iniciar()</code></td><td>cria a matriz 3x3 cheia de zeros e zera o jogo</td></tr>
+            <tr><td><code>exibir()</code></td><td>transforma a matriz numa tabela (X, O, —)</td></tr>
+            <tr><td><code>jogar()</code></td><td>lê a jogada, valida, marca e passa a vez</td></tr>
+            <tr><td><code>checar()</code></td><td>soma linhas, colunas e diagonais procurando 3 ou -3</td></tr>
+          </tbody>
+        </table>
+        <pre class="saida">
+// Criar a matriz: 3 linhas com 3 zeros
+for (let i = 0; i &lt; 3; i++) {
+  tabuleiro.push([0, 0, 0]);
+}
+
+// A pessoa digita 1 a 3, mas o índice vai de 0 a 2
+const i = linha - 1;
+
+// Passar a vez: 1 vira -1, -1 vira 1
+vez = -vez;
+
+// Checar uma linha
+const soma = t[k][0] + t[k][1] + t[k][2];
+if (soma === 3 || soma === -3) { ... }   // alguém completou a linha</pre
+        >
+        <p>
+          <small>
+            Outro jeito de alternar a vez: contar as jogadas e usar o resto da
+            divisão, <code>jogador % 2</code> (dá 0, 1, 0, 1...). Código desta
+            seção: <code>js/pratica.js</code>, seções 1 a 5.
+          </small>
+        </p>
+      </section>
+
+      <section id="melhorias">
+        <h2>3. Da versão básica a um jogo de verdade</h2>
+        <p>A versão mais simples do jogo funciona, mas deixa buracos. Esta página corrige:</p>
+        <table>
+          <thead>
+            <tr><th>Versão básica</th><th>Aqui</th><th>Por quê</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>campo vazio quebra o jogo</td><td>valida 1 a 3 antes de tudo</td><td><code>parseInt("")</code> dá <code>NaN</code> e o código trava</td></tr>
+            <tr><td>continua depois da vitória</td><td><code>fimDeJogo</code> bloqueia</td><td>regra do jogo</td></tr>
+            <tr><td>não percebe empate</td><td>9 jogadas sem vencedor = velha</td><td>regra do jogo</td></tr>
+            <tr><td><code>&lt;body onload="inicia()"&gt;</code></td><td><code>iniciar()</code> no fim do script</td><td>HTML só estrutura</td></tr>
+            <tr><td><code>onclick</code> no botão</td><td><code>addEventListener</code></td><td>página <a href="funcoes.html#calculadora">Funções</a></td></tr>
+            <tr><td><code>var</code></td><td><code>let</code> / <code>const</code></td><td><code>var</code> ignora o escopo de bloco</td></tr>
+            <tr><td>aviso com <code>innerHTML</code></td><td>aviso com <code>textContent</code></td><td>texto puro é mais seguro</td></tr>
+          </tbody>
+        </table>
+        <p>
+          O tabuleiro continua com <code>innerHTML</code> porque monta tags
+          (<code>&lt;table&gt;</code>, <code>&lt;td&gt;</code>) e o conteúdo é só
+          nosso (X, O, —), nunca texto digitado.
+        </p>
+      </section>
+
+      <section id="fibonacci">
+        <h2>4. Fibonacci: recursão na prática</h2>
+        <p>
+          Cada número é a <strong>soma dos dois anteriores</strong>:
+          0, 1, 1, 2, 3, 5, 8, 13, 21, 34... A regra é
+          <code>F(n) = F(n - 1) + F(n - 2)</code>, que vira código quase igual:
+        </p>
+        <pre class="saida">
+function fibonacci(n) {
+  if (n === 0) return 0;                       // caso base
+  if (n === 1) return 1;                       // caso base
+  return fibonacci(n - 1) + fibonacci(n - 2);  // chama a si mesma DUAS vezes
+}
+
+for (let n = 0; n &lt; 10; n++) {
+  console.log(fibonacci(n));   // 0 1 1 2 3 5 8 13 21 34
+}</pre
+        >
+        <p>
+          <strong>O preço</strong>: cada chamada abre outras duas, e as mesmas
+          contas são refeitas milhares de vezes. <code>fibonacci(30)</code>
+          precisa de 2,7 milhões de chamadas. A versão com <code>for</code>
+          guarda os dois últimos números e faz 29 voltas:
+        </p>
+        <pre class="saida">
+function fibonacciComFor(n) {
+  let anterior = 0;
+  let atual = 1;
+  if (n === 0) return 0;
+
+  for (let i = 2; i &lt;= n; i++) {
+    const proximo = anterior + atual;
+    anterior = atual;
+    atual = proximo;
+  }
+  return atual;
+}</pre
+        >
+        <p>
+          Nas empresas: a recursiva é ótima para <strong>entender</strong> a
+          regra; para <strong>rodar</strong>, usa-se o <code>for</code>.
+        </p>
+        <p><small>Código: <code>js/pratica.js</code>, seção 6.</small></p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-fibonacci" novalidate>
+          <label for="campo-fibonacci">Quantos números (1 a 30):</label>
+          <input type="number" id="campo-fibonacci" min="1" max="30" step="1" value="10" />
+          <button type="submit">Gerar e comparar</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre id="resultado-fibonacci" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section id="desafio">
+        <h2>Desafio: placar</h2>
+        <p>
+          Faça o jogo da velha guardar <strong>quantas vitórias</strong> X e O
+          já tiveram (e os empates), mostrando o placar depois de cada partida.
+          O placar não pode zerar no "Novo jogo".
+        </p>
+        <p>
+          Escreva sua resposta em <code>js/pratica.js</code>, seção 7 (está em
+          branco). Dica: variáveis contadoras fora das funções, somadas na
+          vitória (seção 4).
+        </p>
+        <pre class="saida">
+// sua resposta aqui
+</pre>
+        <p><small>Quando quiser a solução, é só pedir.</small></p>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
+    <script src="js/pratica.js"></script>
+  </body>
+</html>
