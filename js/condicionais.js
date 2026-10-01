@@ -1,12 +1,13 @@
 /*
   Condicionais: if / else x ternário
-  As duas formas chegam ao mesmo resultado. Igual à aula (n1 a n4).
+  As duas formas chegam ao mesmo resultado (média de n1 a n4).
 
   1. Com if / else
   2. Com ternário
   3. Ler o formulário e mostrar
+  4. Pode votar? (if / else if com &&)
 
-  Usa: util.js (lerNumero)
+  Usa: util.js (lerNumero, lerInteiro)
 */
 
 
@@ -61,5 +62,60 @@ function tratarTernario(evento) {
 }
 
 
+// 4. Pode votar? (if / else if com &&)
+// Testa de cima para baixo e para no PRIMEIRO bloco verdadeiro.
+// Devolve a mensagem e qual condição foi verdadeira (para estudar).
+function classificarEleitor(idade) {
+  let mensagem = "";
+  let regra = "";
+
+  if (idade < 16) {
+    mensagem = "Você não tem idade mínima para votar.";
+    regra = "idade < 16";
+  } else if (idade >= 16 && idade < 18) {   // && = E: as duas precisam ser verdadeiras
+    mensagem = "Você pode ou não votar, é facultativo!";
+    regra = "idade >= 16 && idade < 18";
+  } else if (idade >= 18 && idade < 70) {
+    mensagem = "Voto obrigatório.";
+    regra = "idade >= 18 && idade < 70";
+  } else {                                  // sobrou: 70 ou mais
+    mensagem = "Facultativo de novo (70 anos ou mais).";
+    regra = "else (nenhuma acima foi verdadeira)";
+  }
+
+  return { mensagem, regra }; // objeto com 2 valores (página For, for...in)
+}
+
+function tratarEleitor(evento) {
+  evento.preventDefault(); // não recarrega a página ao enviar
+
+  const saida = document.getElementById("resultado-eleitor");
+
+  // lerInteiro (util.js): número inteiro digitado, ou null se vazio/inválido
+  const anoVotacao = lerInteiro(document.getElementById("ano-eleicao"));
+  const anoNascimento = lerInteiro(document.getElementById("ano-nascimento"));
+
+  // || = OU: basta um estar vazio para dar erro
+  if (anoVotacao === null || anoNascimento === null) {
+    saida.textContent = "Erro: digite os dois anos.";
+    return; // para aqui
+  }
+  if (anoNascimento > anoVotacao) {
+    saida.textContent = "Erro: o nascimento não pode ser depois da eleição.";
+    return;
+  }
+
+  const idade = anoVotacao - anoNascimento; // operador - (subtração)
+  const resultado = classificarEleitor(idade);
+
+  // Template string: crases e ${variável} (página Variáveis)
+  saida.textContent =
+    `idade = ${anoVotacao} - ${anoNascimento} = ${idade} anos\n\n` +
+    `Condição verdadeira: ${resultado.regra}\n` +
+    `${resultado.mensagem} Idade: ${idade} anos`;
+}
+
+
 // Ligando à página
 document.getElementById("form-ternario").addEventListener("submit", tratarTernario);
+document.getElementById("form-eleitor").addEventListener("submit", tratarEleitor);

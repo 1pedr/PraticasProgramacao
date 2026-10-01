@@ -30,7 +30,13 @@
         <a href="verificador.html">Verificador</a> |
         <a href="repeticao.html">Repetição</a> |
         <a href="for.html">For</a> |
-        <a href="glossario.html">Glossário</a>
+        <a href="arrays.html">Arrays</a> |
+        <a href="matrizes.html">Matrizes</a> |
+        <a href="funcoes.html">Funções</a> |
+        <a href="recursividade.html">Recursividade</a> |
+        <a href="pratica.html">Prática</a> |
+        <a href="glossario.html">Glossário</a> |
+        <a href="claude-code.html">Claude Code</a>
       </nav>
 
       <!-- Título desta página (só UM h1 por página) -->
@@ -138,6 +144,62 @@ let mensagem = media &gt;= 7 ? "Aprovado" : "Reprovado";</pre
         <pre id="resultado-ternario" class="saida" role="status" aria-live="polite"></pre>
 
         <p><a href="verificador.html">Abrir o verificador de notas</a></p>
+      </section>
+
+      <!-- Exemplo: eleitores -->
+      <section>
+        <h2>Exemplo: pode votar?</h2>
+        <p>
+          Primeiro calcula a idade; depois o <code>if / else if</code> escolhe
+          a faixa. O <code>&amp;&amp;</code> (E) monta uma faixa: "de 16 até
+          antes de 18".
+        </p>
+        <pre class="saida">
+const anoVotacao = Number(prompt("Digite o ano da Eleição"));
+const anoNascimento = Number(prompt("Digite o ano de nascimento"));
+
+const idade = anoVotacao - anoNascimento;
+
+if (idade &lt; 16) {
+  console.log("Você não tem idade mínima para votar. Idade: " + idade + " anos");
+} else if (idade &gt;= 16 &amp;&amp; idade &lt; 18) {
+  console.log("Você pode ou não votar, é facultativo! Idade: " + idade + " anos");
+} else if (idade &gt;= 18 &amp;&amp; idade &lt; 70) {
+  console.log("Voto obrigatório. Idade: " + idade + " anos");
+} else {
+  console.log("Facultativo de novo (70 anos ou mais). Idade: " + idade + " anos");
+}</pre
+        >
+        <p>Dois jeitos de escrever "16 ou 17 anos" (os dois funcionam):</p>
+        <pre class="saida">
+idade == 16 || idade == 17   // lista cada valor: é 16 OU é 17
+idade &gt;= 16 &amp;&amp; idade &lt; 18    // faixa: de 16 até antes de 18 (melhor para faixas grandes)</pre
+        >
+        <p>
+          <small>
+            No código acima os valores vêm do <code>prompt</code>; no teste abaixo, dos campos.
+            As duas últimas faixas (18 a 69 e 70+) seguem a regra do voto no
+            Brasil. Código desta seção: <code>js/condicionais.js</code>, seção 4.
+          </small>
+        </p>
+
+        <!-- form: agrupa os campos; o JS acha ele pelo id -->
+        <form id="form-eleitor" novalidate>
+          <!-- label for="..." liga o texto ao campo com o mesmo id -->
+          <label for="ano-eleicao">Ano da eleição:</label>
+          <!-- type="number": só aceita números; value: já vem preenchido -->
+          <input type="number" id="ano-eleicao" min="1900" max="2100" step="1" value="2026" />
+          <br /><br />
+          <label for="ano-nascimento">Ano de nascimento:</label>
+          <!-- placeholder: dica cinza que some ao digitar -->
+          <input type="number" id="ano-nascimento" min="1900" max="2100" step="1" placeholder="Ex.: 2009" />
+          <br /><br />
+          <!-- type="submit": envia o formulário e dispara o JS -->
+          <button type="submit">Verificar</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui (pre mantém as quebras de linha) -->
+        <pre id="resultado-eleitor" class="saida" role="status" aria-live="polite"></pre>
       </section>
     </main>
 
