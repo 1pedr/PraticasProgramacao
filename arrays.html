@@ -1,0 +1,255 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arrays em JavaScript</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho: igual em todas as páginas -->
+    <header>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
+      <nav>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="arrays.html" aria-current="page">Arrays</a> |
+        <a href="matrizes.html">Matrizes</a> |
+        <a href="funcoes.html">Funções</a> |
+        <a href="recursividade.html">Recursividade</a> |
+        <a href="pratica.html">Prática</a> |
+        <a href="glossario.html">Glossário</a> |
+        <a href="claude-code.html">Claude Code</a>
+      </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Arrays</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <!-- Menu desta página -->
+      <nav>
+        <a href="#o-que-e">O que é</a> | <a href="#criar">Criar</a> |
+        <a href="#acessar">Acessar</a> | <a href="#metodos">Métodos</a> |
+        <a href="#splice">splice</a> | <a href="#laboratorio">Laboratório</a> |
+        <a href="#sort">Cuidado com o sort</a>
+      </nav>
+
+      <section id="o-que-e">
+        <h2>O que é um array?</h2>
+        <ul>
+          <li><strong>Variável simples</strong>: guarda UM valor (<code>let nome = "Gol"</code>).</li>
+          <li>
+            <strong>Variável composta</strong> (array): guarda VÁRIOS valores,
+            os <strong>elementos</strong>, numa variável só.
+          </li>
+          <li>
+            Cada elemento tem uma posição, o <strong>índice</strong>, que
+            <strong>começa em 0</strong>.
+          </li>
+          <li>Pode misturar tipos: número, texto, true/false, objeto...</li>
+          <li>
+            É <strong>dinâmico</strong>: cresce e diminui à vontade, sem dizer o
+            tamanho antes.
+          </li>
+        </ul>
+        <pre class="saida">
+índice:   0       1        2         3
+carros: ["Gol", "Fusca", "Virtus", "Ka"]</pre
+        >
+      </section>
+
+      <section id="criar">
+        <h2>Como criar</h2>
+        <pre class="saida">
+// Literal: lista entre [ ] separada por vírgula (o mais usado)
+let vazio = [];                     // sem elementos
+let numeros = [4, 5, 7, 10, 20];    // 5 números
+let misturado = [2.5, true, "Ana"]; // 3 tipos diferentes
+
+let x = 1024;
+let calculado = [x, x + 1, x + 2, x + 3]; // valores podem ser contas
+
+// Construtor new Array() (menos usado)
+let a = new Array();          // vazio, igual a []
+let b = new Array(10);        // 10 posições VAZIAS
+let c = new Array(1, 2, "teste"); // os valores viram os elementos</pre
+        >
+        <p>
+          Prefira o <strong>literal</strong> <code>[ ]</code>: é mais curto,
+          mais fácil de ler e mais rápido.
+        </p>
+      </section>
+
+      <section id="acessar">
+        <h2>Como acessar</h2>
+        <pre class="saida">
+let cursos = ["Análise", "Redes", "Sistema de Informação"];
+
+console.log(cursos);      // o array inteiro
+console.log(cursos[0]);   // "Análise"   (índice 0 = primeiro)
+console.log(cursos[2]);   // "Sistema de Informação"
+console.log(cursos.length); // 3 (quantos elementos)
+
+// Percorrer todos com for...of (página For)
+for (let elemento of cursos) {
+  console.log(elemento);
+}
+
+console.table(cursos); // mostra como tabela no Console (F12)</pre
+        >
+        <p>
+          O último índice é sempre <code>length - 1</code>: com 3 elementos,
+          os índices são 0, 1 e 2.
+        </p>
+      </section>
+
+      <section id="metodos">
+        <h2>Métodos para mudar o array</h2>
+        <table>
+          <thead>
+            <tr><th>Método</th><th>O que faz</th><th>Devolve</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>push(item)</code></td><td>adiciona no <strong>fim</strong></td><td>o novo tamanho</td></tr>
+            <tr><td><code>unshift(item)</code></td><td>adiciona no <strong>começo</strong></td><td>o novo tamanho</td></tr>
+            <tr><td><code>pop()</code></td><td>remove o <strong>último</strong></td><td>o item removido</td></tr>
+            <tr><td><code>shift()</code></td><td>remove o <strong>primeiro</strong></td><td>o item removido</td></tr>
+            <tr><td><code>splice(pos, qtd, item)</code></td><td>insere, troca ou exclui numa posição</td><td>array com os removidos</td></tr>
+            <tr><td><code>sort()</code></td><td>ordena</td><td>o próprio array</td></tr>
+          </tbody>
+        </table>
+        <p>
+          Para lembrar: <strong>push/pop</strong> mexem no fim;
+          <strong>unshift/shift</strong> mexem no começo.
+          <code>pop</code> e <code>shift</code> tiram <strong>um</strong> item
+          por vez.
+        </p>
+      </section>
+
+      <section id="splice">
+        <h2>splice: o canivete suíço</h2>
+        <pre class="saida">
+carros.splice(posição, quantosRemover, novoItem);
+
+carros.splice(3, 0, "Uno"); // remove 0 e INSERE "Uno" na posição 3
+carros.splice(1, 1, "Uno"); // remove 1 na posição 1 e põe "Uno" no lugar (TROCA)
+carros.splice(2, 3);        // EXCLUI 3 itens a partir da posição 2</pre
+        >
+        <p>
+          O segundo número decide tudo: <code>0</code> só insere; maior que
+          <code>0</code> remove (e, se tiver item, coloca no lugar).
+        </p>
+      </section>
+
+      <section id="laboratorio">
+        <h2>Laboratório: o array carros</h2>
+        <pre class="saida">
+const carros = ["Gol", "Fusca", "Virtus", "Ka"];
+carros.push("Fiesta");
+carros.unshift("Palio");
+console.table(carros);
+
+carros.splice(1, 1, "Uno");
+console.table(carros);</pre
+        >
+        <p>
+          Experimente: digite <strong>Fiesta</strong> e clique em
+          <code>push</code>; digite <strong>Palio</strong> e clique em
+          <code>unshift</code>; depois faça o <code>splice(1, 1, "Uno")</code>.
+        </p>
+        <p>
+          <small>Código desta seção: <code>js/arrays.js</code>, seções 1 a 6.</small>
+        </p>
+
+        <!-- Campo usado por push, unshift e splice -->
+        <label for="campo-item">Item:</label>
+        <input type="text" id="campo-item" placeholder="Ex.: Fiesta" />
+
+        <!-- div class="botoes": agrupa os botões lado a lado (ver CSS) -->
+        <!-- type="button": botão comum, não envia formulário -->
+        <h3>Adicionar</h3>
+        <div class="botoes">
+          <button type="button" id="btn-push">push</button>
+          <button type="button" id="btn-unshift">unshift</button>
+        </div>
+
+        <h3>Remover</h3>
+        <div class="botoes">
+          <button type="button" id="btn-pop">pop</button>
+          <button type="button" id="btn-shift">shift</button>
+        </div>
+
+        <h3>Inserir, trocar ou excluir: splice</h3>
+        <!-- splice tem seu próprio formulário (usa também o Item acima) -->
+        <form id="form-splice" novalidate>
+          <label for="campo-posicao">Posição:</label>
+          <input type="number" id="campo-posicao" min="0" step="1" value="1" />
+          <br /><br />
+          <label for="campo-quantos">Quantos remover:</label>
+          <input type="number" id="campo-quantos" min="0" step="1" value="1" />
+          <br /><br />
+          <button type="submit">splice</button>
+        </form>
+
+        <h3>Outros</h3>
+        <div class="botoes">
+          <button type="button" id="btn-sort">sort</button>
+          <button type="button" id="btn-recomecar">Recomeçar</button>
+        </div>
+
+        <!-- O JS escreve o código, o retorno e a tabela aqui -->
+        <pre id="resultado-array" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section id="sort">
+        <h2>Cuidado com o sort em números</h2>
+        <p>
+          O <code>sort()</code> compara como <strong>texto</strong>, letra por
+          letra. Com números do mesmo tamanho funciona:
+        </p>
+        <pre class="saida">
+let idades = [38, 59, 28, 64, 60];
+idades.sort();      // [28, 38, 59, 60, 64]  certo
+
+let numeros = [10, 9, 100];
+numeros.sort();     // [10, 100, 9]  errado! "1" vem antes de "9"</pre
+        >
+        <p>
+          Para ordenar números de verdade:
+          <code>numeros.sort((a, b) =&gt; a - b)</code>. Essa
+          <code>( ) =&gt;</code> é uma <strong>arrow function</strong> (página
+          <a href="funcoes.html">Funções</a>).
+        </p>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
+    <script src="js/arrays.js"></script>
+  </body>
+</html>
