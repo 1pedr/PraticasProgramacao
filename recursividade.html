@@ -1,0 +1,229 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recursividade em JavaScript</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho: igual em todas as páginas -->
+    <header>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
+      <nav>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="arrays.html">Arrays</a> |
+        <a href="matrizes.html">Matrizes</a> |
+        <a href="funcoes.html">Funções</a> |
+        <a href="recursividade.html" aria-current="page">Recursividade</a> |
+        <a href="pratica.html">Prática</a> |
+        <a href="glossario.html">Glossário</a> |
+        <a href="claude-code.html">Claude Code</a>
+      </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Recursividade</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <!-- Menu desta página -->
+      <nav>
+        <a href="#o-que-e">O que é</a> | <a href="#fatorial">Fatorial</a> |
+        <a href="#regressiva">for x recursão</a> | <a href="#mercado">Onde se usa</a> |
+        <a href="#desafio">Desafio</a>
+      </nav>
+
+      <section id="o-que-e">
+        <h2>1. O que é</h2>
+        <p>
+          <strong>Recursão</strong> é resolver um problema quebrando-o em
+          versões <strong>menores dele mesmo</strong>, até chegar a uma tão
+          pequena que a resposta é óbvia. Em código: uma
+          <strong>função que chama a si mesma</strong>.
+        </p>
+        <pre class="saida">
+function recursiva() {
+  if (condição) {
+    // CASO BASE: para de se chamar
+  } else {
+    recursiva();   // PASSO RECURSIVO: chama de novo, com um problema menor
+  }
+}</pre
+        >
+        <ul>
+          <li><strong>Caso base</strong>: a condição de parada. Sem ele, a função se chama para sempre.</li>
+          <li>
+            Sem caso base, o JavaScript desiste depois de ~10 mil chamadas e dá
+            o erro <code>Maximum call stack size exceeded</code> (estouro da
+            pilha de chamadas, o famoso <em>stack overflow</em>).
+          </li>
+          <li>Cada chamada precisa chegar <strong>mais perto</strong> do caso base.</li>
+        </ul>
+      </section>
+
+      <section id="fatorial">
+        <h2>2. Exemplo clássico: fatorial</h2>
+        <p>
+          Fatorial (<code>5!</code>) é multiplicar de 1 até o número:
+          <code>5 x 4 x 3 x 2 x 1 = 120</code>. Repare que
+          <code>5!</code> é <code>5 x 4!</code>: o problema contém uma versão
+          menor dele mesmo.
+        </p>
+        <pre class="saida">
+function fatorial(x) {
+  if (x &lt;= 1) {
+    return 1;                  // caso base
+  }
+  return x * fatorial(x - 1);  // passo recursivo
+}
+
+fatorial(5);   // 120</pre
+        >
+        <p>
+          As chamadas <strong>descem</strong> até o caso base e depois
+          <strong>sobem</strong> devolvendo os resultados, como caixas uma
+          dentro da outra:
+        </p>
+        <pre class="saida">
+fatorial(5) = 5 * fatorial(4)
+                  4 * fatorial(3)
+                      3 * fatorial(2)
+                          2 * fatorial(1)
+                              1            &lt;- caso base</pre
+        >
+        <p><small>Código: <code>js/recursividade.js</code>, seção 1.</small></p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-fatorial" novalidate>
+          <label for="campo-fatorial">Fatorial de (0 a 15):</label>
+          <input type="number" id="campo-fatorial" min="0" max="15" step="1" value="5" />
+          <button type="submit">Calcular e ver as chamadas</button>
+        </form>
+
+        <!-- O JS escreve as chamadas aqui -->
+        <pre id="resultado-fatorial" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section id="regressiva">
+        <h2>3. Contagem regressiva: for x recursão</h2>
+        <pre class="saida">
+// Com for: o laço repete
+for (let cont = 10; cont &gt;= 1; cont--) {
+  console.log(cont);
+}
+
+// Com recursão: a função se repete
+function regressiva(cont, num) {
+  console.log(cont);
+  if (num &lt; cont) {               // enquanto não chegou no fim...
+    regressiva(cont - 1, num);    // ...chama de novo com um a menos
+  }
+}
+
+regressiva(10, 1);   // 10 9 8 7 6 5 4 3 2 1</pre
+        >
+        <p>
+          <strong>Cuidado com <code>cont--</code></strong> na chamada:
+          <code>regressiva(cont--, num)</code> entrega o valor
+          <strong>antes</strong> de diminuir. A função recebe 10 de novo, para
+          sempre, e estoura a pilha. Funciona com <code>--cont</code> (diminui
+          antes) ou, mais claro, com <code>cont - 1</code>.
+        </p>
+        <p><small>Código: <code>js/recursividade.js</code>, seção 2.</small></p>
+
+        <!-- O JS acha este formulário pelo id -->
+        <form id="form-regressiva" novalidate>
+          <label for="campo-regressiva">Começar em (1 a 50):</label>
+          <input type="number" id="campo-regressiva" min="1" max="50" step="1" value="10" />
+          <button type="submit">Comparar</button>
+        </form>
+
+        <!-- O JS escreve o resultado aqui -->
+        <pre id="resultado-regressiva" class="saida" role="status" aria-live="polite"></pre>
+      </section>
+
+      <section id="mercado">
+        <h2>4. Recursão ou repetição? Onde se usa de verdade</h2>
+        <table>
+          <thead>
+            <tr><th>Use</th><th>Quando</th><th>Exemplos reais</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>for</code> / <code>while</code></td>
+              <td>repetir N vezes, percorrer uma lista</td>
+              <td>contagem, somar notas, tabuada</td>
+            </tr>
+            <tr>
+              <td>recursão</td>
+              <td>estrutura <strong>dentro de estrutura</strong>, sem saber quantos níveis</td>
+              <td>pastas dentro de pastas, menus com submenus, comentários com respostas</td>
+            </tr>
+          </tbody>
+        </table>
+        <pre class="saida">
+// Contar arquivos numa pasta que tem pastas dentro (não se sabe quantos níveis)
+function contarArquivos(pasta) {
+  let total = pasta.arquivos.length;
+  for (let sub of pasta.subpastas) {
+    total += contarArquivos(sub);   // cada subpasta é o MESMO problema, menor
+  }
+  return total;                     // caso base: pasta sem subpastas
+}</pre
+        >
+        <p>
+          Para contar de 10 até 1, o <code>for</code> é mais simples e mais
+          rápido. A recursão brilha quando o problema tem
+          <strong>formato de árvore</strong>.
+        </p>
+      </section>
+
+      <section id="desafio">
+        <h2>Desafio: fatorial sem recursão</h2>
+        <p>
+          Escreva <code>fatorialComFor(x)</code> usando um laço
+          <code>for</code> em vez de recursão. Dica: comece com
+          <code>resultado = 1</code> e vá multiplicando (variável acumuladora,
+          página <a href="repeticao.html">Repetição</a>).
+        </p>
+        <p>
+          Escreva sua resposta em <code>js/recursividade.js</code>, seção 3
+          (está em branco).
+        </p>
+        <pre class="saida">
+// sua resposta aqui
+</pre>
+        <p><small>Quando quiser a solução, é só pedir.</small></p>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda.
+         util.js vem primeiro, porque os outros usam as funções dele. -->
+    <script src="js/util.js"></script>
+    <script src="js/recursividade.js"></script>
+  </body>
+</html>
