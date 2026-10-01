@@ -40,8 +40,20 @@ header {
   border-bottom: 3px solid var(--vermelho);
 }
 
+/* Título do site: igual em todas as páginas */
+.site {
+  display: block;        /* ocupa a linha inteira, o menu vai para baixo */
+  color: white;
+  font-size: 1.8em;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 12px;
+}
+
+/* Título da página atual, abaixo do menu */
 header h1 {
-  margin: 0 0 12px;
+  margin: 20px 0 0;
+  font-size: 1.4em;
 }
 
 /* "nav a" = links que estão DENTRO do nav */
@@ -54,6 +66,14 @@ nav a {
 /* :hover = quando o mouse passa por cima */
 nav a:hover {
   text-decoration: underline;
+}
+
+/* [aria-current="page"] = o link da página em que você está */
+nav a[aria-current="page"] {
+  color: var(--fundo);
+  background-color: white;
+  padding: 0 6px;
+  border-radius: 4px;
 }
 
 hr {
@@ -128,6 +148,11 @@ td {                           /* vírgula = aplica nos dois */
 th {
   background-color: var(--vermelho-escuro);
   color: white;
+}
+
+/* Código comprido quebra a linha em vez de vazar no celular */
+td code {
+  overflow-wrap: anywhere;
 }
 
 /* :nth-child(even) = linhas pares → efeito "zebrado" */

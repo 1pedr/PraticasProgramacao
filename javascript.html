@@ -11,21 +11,30 @@
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho: igual em todas as páginas -->
     <header>
-      <h1>Introdução ao JavaScript</h1>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
       <nav>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html" aria-current="page">JavaScript</a> |
         <a href="variaveis.html">Variáveis</a> |
         <a href="entrada-saida.html">Entrada e Saída</a> |
         <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
         <a href="condicionais.html">Condicionais</a> |
         <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
         <a href="repeticao.html">Repetição</a> |
         <a href="for.html">For</a> |
-        <a href="verificador.html">Verificador</a> |
-        <a href="desafio.html">Desafios</a> |
-        <a href="basico.html">HTML Básico</a>
+        <a href="glossario.html">Glossário</a>
       </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Introdução ao JavaScript</h1>
     </header>
 
     <!-- Conteúdo -->
@@ -95,6 +104,10 @@
           <li>
             <a href="desafio.html">Desafios</a>: some, subtraia, multiplique,
             divida, calcule o resto e a potência.
+          </li>
+          <li>
+            <a href="glossario.html">Glossário</a>: o que é cada tag HTML e
+            cada comando JS usado no caderno, com busca.
           </li>
         </ol>
       </section>

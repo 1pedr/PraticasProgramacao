@@ -1,0 +1,353 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glossário HTML e JS</title>
+    <!-- Liga o CSS -->
+    <link rel="stylesheet" href="css/estilo.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho: igual em todas as páginas -->
+    <header>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
+      <nav>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="glossario.html" aria-current="page">Glossário</a>
+      </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Glossário</h1>
+    </header>
+
+    <!-- Conteúdo -->
+    <main>
+      <section>
+        <h2>Como usar</h2>
+        <p>
+          Tudo o que aparece no código do caderno, com o que é e um exemplo.
+          Digite para filtrar (ex.: <code>ul</code>, <code>for</code>,
+          <code>value</code>).
+        </p>
+        <label for="campo-busca">Buscar:</label>
+        <input type="text" id="campo-busca" placeholder="ex.: ul" />
+        <p id="resultado-busca" role="status" aria-live="polite"></p>
+        <p>
+          <a href="#html">HTML</a> | <a href="#js">JavaScript</a> |
+          <a href="#util">Funções do util.js</a>
+        </p>
+      </section>
+
+      <!-- HTML -->
+      <section id="html">
+        <h2>HTML: estrutura da página</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;!doctype html&gt;</code></td><td>Avisa que é HTML moderno. Primeira linha.</td><td><code>&lt;!doctype html&gt;</code></td></tr>
+            <tr><td><code>&lt;html&gt;</code></td><td>Caixa que guarda a página inteira.</td><td><code>&lt;html lang="pt-BR"&gt;</code></td></tr>
+            <tr><td><code>&lt;head&gt;</code></td><td>Informações da página (não aparecem no corpo).</td><td>título, CSS, meta</td></tr>
+            <tr><td><code>&lt;meta&gt;</code></td><td>Configuração: acentos (<code>charset</code>) e celular (<code>viewport</code>).</td><td><code>&lt;meta charset="UTF-8" /&gt;</code></td></tr>
+            <tr><td><code>&lt;title&gt;</code></td><td>Nome que aparece na aba do navegador.</td><td><code>&lt;title&gt;For&lt;/title&gt;</code></td></tr>
+            <tr><td><code>&lt;link&gt;</code></td><td>Liga um arquivo externo, como o CSS.</td><td><code>&lt;link rel="stylesheet" href="css/estilo.css" /&gt;</code></td></tr>
+            <tr><td><code>&lt;body&gt;</code></td><td>Tudo que aparece na tela.</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;script&gt;</code></td><td>Liga ou escreve JavaScript. Fica no fim do body.</td><td><code>&lt;script src="js/for.js"&gt;&lt;/script&gt;</code></td></tr>
+            <tr><td><code>&lt;!-- --&gt;</code></td><td>Comentário: o navegador ignora.</td><td><code>&lt;!-- Rodapé --&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: organização (semântica)</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;header&gt;</code></td><td>Cabeçalho: título e menu.</td><td>topo de cada página</td></tr>
+            <tr><td><code>&lt;nav&gt;</code></td><td>Menu de links.</td><td>a barra Início | Variáveis | ...</td></tr>
+            <tr><td><code>&lt;main&gt;</code></td><td>Conteúdo principal (só um por página).</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;section&gt;</code></td><td>Uma parte do conteúdo, com seu título.</td><td>cada "Exemplo" do caderno</td></tr>
+            <tr><td><code>&lt;footer&gt;</code></td><td>Rodapé.</td><td>&copy; 2026</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: texto</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code></td><td>Títulos. h1 é o maior; h2 é subtítulo...</td><td><code>&lt;h2&gt;Exemplo 1&lt;/h2&gt;</code></td></tr>
+            <tr><td><code>&lt;p&gt;</code></td><td>Parágrafo.</td><td><code>&lt;p&gt;Texto&lt;/p&gt;</code></td></tr>
+            <tr><td><code>&lt;strong&gt;</code></td><td>Destaque importante (negrito).</td><td><strong>importante</strong></td></tr>
+            <tr><td><code>&lt;em&gt;</code></td><td>Ênfase (itálico).</td><td><em>índice</em></td></tr>
+            <tr><td><code>&lt;small&gt;</code></td><td>Texto menor, de observação.</td><td><small>Código desta seção...</small></td></tr>
+            <tr><td><code>&lt;mark&gt;</code></td><td>Texto marcado (marca-texto).</td><td><mark>marcado</mark></td></tr>
+            <tr><td><code>&lt;code&gt;</code></td><td>Trecho de código no meio do texto.</td><td><code>let i = 1</code></td></tr>
+            <tr><td><code>&lt;pre&gt;</code></td><td>Bloco que mantém espaços e quebras de linha. Usado para código e resultados.</td><td>as caixas de código do caderno</td></tr>
+            <tr><td><code>&lt;br&gt;</code></td><td>Quebra de linha (não tem fechamento).</td><td><code>&lt;br /&gt;</code></td></tr>
+            <tr><td><code>&lt;hr&gt;</code></td><td>Linha horizontal separando partes.</td><td><code>&lt;hr /&gt;</code></td></tr>
+            <tr><td><code>&lt;blockquote&gt;</code></td><td>Citação de outro texto.</td><td>&nbsp;</td></tr>
+            <tr><td><code>&amp;lt;</code> <code>&amp;gt;</code></td><td>Escrevem <code>&lt;</code> e <code>&gt;</code> sem o navegador achar que é tag.</td><td><code>i &amp;lt;= 10</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: listas, links e imagens</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;ul&gt;</code></td><td>Lista com bolinhas (<em>unordered list</em>, sem ordem).</td><td><code>&lt;ul&gt;&lt;li&gt;item&lt;/li&gt;&lt;/ul&gt;</code></td></tr>
+            <tr><td><code>&lt;ol&gt;</code></td><td>Lista numerada (<em>ordered list</em>).</td><td>1. 2. 3.</td></tr>
+            <tr><td><code>&lt;li&gt;</code></td><td>Um item da lista (<em>list item</em>). Vai dentro de ul ou ol.</td><td><code>&lt;li&gt;Gol&lt;/li&gt;</code></td></tr>
+            <tr><td><code>&lt;a&gt;</code></td><td>Link. <code>href</code> diz para onde vai.</td><td><code>&lt;a href="for.html"&gt;For&lt;/a&gt;</code></td></tr>
+            <tr><td><code>href="#id"</code></td><td>Pula para um ponto da mesma página.</td><td><code>&lt;a href="#js"&gt;</code></td></tr>
+            <tr><td><code>target="_blank"</code></td><td>Abre o link em outra aba.</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;img&gt;</code></td><td>Imagem. <code>src</code> = arquivo; <code>alt</code> = descrição.</td><td><code>&lt;img src="foto.png" alt="Foto" /&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: tabelas</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;table&gt;</code></td><td>A tabela inteira.</td><td>esta aqui</td></tr>
+            <tr><td><code>&lt;thead&gt;</code></td><td>Parte do cabeçalho (títulos das colunas).</td><td>Termo | O que é | Exemplo</td></tr>
+            <tr><td><code>&lt;tbody&gt;</code></td><td>Parte dos dados.</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;tr&gt;</code></td><td>Uma linha (<em>table row</em>).</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;th&gt;</code></td><td>Célula de título (<em>table header</em>).</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;td&gt;</code></td><td>Célula de dado (<em>table data</em>).</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: formulários</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>&lt;form&gt;</code></td><td>Agrupa campos e botões. Ao enviar, dispara o evento <code>submit</code>.</td><td><code>&lt;form id="form-tabuada"&gt;</code></td></tr>
+            <tr><td><code>novalidate</code></td><td>Desliga a validação do navegador; o JS valida.</td><td><code>&lt;form novalidate&gt;</code></td></tr>
+            <tr><td><code>&lt;label&gt;</code></td><td>Nome do campo. <code>for</code> liga ao <code>id</code> do campo.</td><td><code>&lt;label for="campo-fim"&gt;</code></td></tr>
+            <tr><td><code>&lt;input&gt;</code></td><td>Campo para digitar. <code>type</code> diz o tipo.</td><td><code>&lt;input type="number" /&gt;</code></td></tr>
+            <tr><td><code>type</code></td><td><code>text</code>, <code>number</code>, <code>checkbox</code>...</td><td>&nbsp;</td></tr>
+            <tr><td><code>value</code></td><td>Valor que já vem no campo.</td><td><code>value="10"</code></td></tr>
+            <tr><td><code>min</code> <code>max</code> <code>step</code></td><td>Menor valor, maior valor e de quanto em quanto.</td><td><code>min="1" max="50" step="1"</code></td></tr>
+            <tr><td><code>placeholder</code></td><td>Dica cinza dentro do campo vazio.</td><td><code>placeholder="ex.: ul"</code></td></tr>
+            <tr><td><code>&lt;select&gt;</code></td><td>Caixa de escolha (lista suspensa).</td><td>escolher o cargo</td></tr>
+            <tr><td><code>&lt;option&gt;</code></td><td>Uma opção dentro do select.</td><td><code>&lt;option&gt;Gerente&lt;/option&gt;</code></td></tr>
+            <tr><td><code>&lt;textarea&gt;</code></td><td>Campo de texto com várias linhas.</td><td>&nbsp;</td></tr>
+            <tr><td><code>&lt;button&gt;</code></td><td>Botão. Dentro do form, <code>type="submit"</code> envia.</td><td><code>&lt;button type="submit"&gt;</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>HTML: atributos que aparecem em todo lugar</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>id</code></td><td>Nome único do elemento. O JS acha ele por aqui.</td><td><code>id="resultado-tabuada"</code></td></tr>
+            <tr><td><code>class</code></td><td>Grupo de estilo do CSS (pode repetir).</td><td><code>class="saida"</code></td></tr>
+            <tr><td><code>name</code></td><td>Nome do campo (agrupa opções iguais).</td><td>&nbsp;</td></tr>
+            <tr><td><code>data-*</code></td><td>Informação extra para o JS ler com <code>.dataset</code>.</td><td><code>data-estrutura="while"</code></td></tr>
+            <tr><td><code>role</code> <code>aria-live</code></td><td>Avisam o leitor de tela quando o resultado muda.</td><td><code>aria-live="polite"</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- JavaScript -->
+      <section id="js">
+        <h2>JS: variáveis e tipos</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>let</code></td><td>Cria variável que pode mudar.</td><td><code>let soma = 0;</code></td></tr>
+            <tr><td><code>const</code></td><td>Cria variável que não muda.</td><td><code>const qtd = 4;</code></td></tr>
+            <tr><td><code>var</code></td><td>Jeito antigo de criar variável. Prefira let/const.</td><td>&nbsp;</td></tr>
+            <tr><td>texto (string)</td><td>Entre aspas ou crases.</td><td><code>"Gol"</code></td></tr>
+            <tr><td>número</td><td>Sem aspas. Decimal usa ponto.</td><td><code>8.5</code></td></tr>
+            <tr><td><code>true</code> <code>false</code></td><td>Verdadeiro e falso (booleano).</td><td><code>contador &lt;= 10</code> → true</td></tr>
+            <tr><td><code>null</code></td><td>"Nada", de propósito. O prompt devolve null ao Cancelar.</td><td>&nbsp;</td></tr>
+            <tr><td><code>undefined</code></td><td>Variável criada sem valor.</td><td><code>let x;</code></td></tr>
+            <tr><td><code>typeof</code></td><td>Diz o tipo de um valor.</td><td><code>typeof "a"</code> → "string"</td></tr>
+            <tr><td><code>`${ }`</code></td><td>Template string: texto com variáveis dentro.</td><td><code>`Soma: ${soma}`</code></td></tr>
+            <tr><td><code>\n</code></td><td>Quebra de linha dentro do texto.</td><td><code>"linha1\nlinha2"</code></td></tr>
+            <tr><td><code>//</code> <code>/* */</code></td><td>Comentário de uma linha / de várias linhas.</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>JS: operadores</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>+ - * /</code></td><td>Soma, subtração, multiplicação, divisão. Com texto, <code>+</code> junta.</td><td><code>"7" + "8"</code> → "78"</td></tr>
+            <tr><td><code>%</code></td><td>Resto da divisão.</td><td><code>10 % 3</code> → 1</td></tr>
+            <tr><td><code>**</code></td><td>Potência.</td><td><code>2 ** 3</code> → 8</td></tr>
+            <tr><td><code>+=</code></td><td>Soma e guarda.</td><td><code>soma += i</code> = <code>soma = soma + i</code></td></tr>
+            <tr><td><code>++</code> <code>--</code></td><td>Soma 1 / tira 1.</td><td><code>i++</code></td></tr>
+            <tr><td><code>=</code></td><td>Guarda um valor (atribuição). Não compara!</td><td><code>let i = 1</code></td></tr>
+            <tr><td><code>===</code> <code>!==</code></td><td>Igual / diferente (valor e tipo).</td><td><code>nota === 10</code></td></tr>
+            <tr><td><code>&lt; &gt; &lt;= &gt;=</code></td><td>Menor, maior, menor ou igual, maior ou igual.</td><td><code>i &lt;= 10</code></td></tr>
+            <tr><td><code>&amp;&amp;</code></td><td>E: as duas condições precisam ser verdadeiras.</td><td><code>nota &gt;= 0 &amp;&amp; nota &lt;= 10</code></td></tr>
+            <tr><td><code>||</code></td><td>OU: basta uma ser verdadeira.</td><td><code>nota &lt; 0 || nota &gt; 10</code></td></tr>
+            <tr><td><code>!</code></td><td>NÃO: inverte true/false.</td><td><code>!true</code> → false</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>JS: decisão e repetição</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>if</code> / <code>else</code></td><td>Se a condição for verdadeira faz um bloco; senão, o outro.</td><td><code>if (media &gt;= 7) { } else { }</code></td></tr>
+            <tr><td><code>? :</code></td><td>Ternário: if/else em uma linha.</td><td><code>media &gt;= 7 ? "Aprovado" : "Reprovado"</code></td></tr>
+            <tr><td><code>switch</code></td><td>Compara um valor com vários <code>case</code>.</td><td><code>switch (mes) { case 1: ... }</code></td></tr>
+            <tr><td><code>break</code></td><td>Sai do switch (ou do laço).</td><td>&nbsp;</td></tr>
+            <tr><td><code>default</code></td><td>O "senão" do switch: nenhum case bateu.</td><td>&nbsp;</td></tr>
+            <tr><td><code>while</code></td><td>Repete enquanto a condição for verdadeira. Testa ANTES.</td><td><code>while (i &lt;= 10) { }</code></td></tr>
+            <tr><td><code>do...while</code></td><td>Roda pelo menos 1 vez. Testa DEPOIS.</td><td><code>do { } while (nota &gt; 10);</code></td></tr>
+            <tr><td><code>for</code></td><td>Início, condição e passo numa linha.</td><td><code>for (let i = 1; i &lt;= 10; i++)</code></td></tr>
+            <tr><td><code>for...in</code></td><td>Passa pelos NOMES das propriedades de um objeto.</td><td><code>for (let atributo in pessoa)</code></td></tr>
+            <tr><td><code>for...of</code></td><td>Passa pelos VALORES de um array ou texto.</td><td><code>for (let carro of carros)</code></td></tr>
+            <tr><td><code>continue</code></td><td>Pula para a próxima rodada do laço.</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>JS: funções, objetos e arrays</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>function</code></td><td>Bloco de código com nome, que roda quando é chamado.</td><td><code>function montarTabuada(numero) { }</code></td></tr>
+            <tr><td>parâmetro</td><td>Valor que a função recebe, entre <code>( )</code>.</td><td><code>numero</code> em <code>montarTabuada(numero)</code></td></tr>
+            <tr><td><code>return</code></td><td>Devolve um resultado e encerra a função.</td><td><code>return soma;</code></td></tr>
+            <tr><td>objeto <code>{ }</code></td><td>Vários valores com nome, juntos.</td><td><code>{ nome: "Orion", nota: 8 }</code></td></tr>
+            <tr><td><code>.</code> e <code>[ ]</code></td><td>Pegam um valor do objeto.</td><td><code>pessoa.nome</code> = <code>pessoa["nome"]</code></td></tr>
+            <tr><td>array <code>[ ]</code></td><td>Lista de valores. Posição (índice) começa em 0.</td><td><code>carros[0]</code> → "Gol"</td></tr>
+            <tr><td><code>.length</code></td><td>Tamanho de um array ou texto.</td><td><code>carros.length</code> → 4</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>JS: entrada, saída e página</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>prompt()</code></td><td>Janela que pergunta algo. Devolve TEXTO (ou null).</td><td><code>prompt("Quantas notas?")</code></td></tr>
+            <tr><td><code>alert()</code></td><td>Janela de aviso.</td><td><code>alert("Nota inválida")</code></td></tr>
+            <tr><td><code>confirm()</code></td><td>Janela OK/Cancelar. Devolve true ou false.</td><td>&nbsp;</td></tr>
+            <tr><td><code>console.log()</code></td><td>Mostra no Console (F12). Para testar.</td><td><code>console.log(soma)</code></td></tr>
+            <tr><td><code>document.getElementById()</code></td><td>Acha um elemento da página pelo <code>id</code>.</td><td><code>document.getElementById("campo-fim")</code></td></tr>
+            <tr><td><code>.value</code></td><td>O que está digitado num campo (sempre texto).</td><td><code>campo.value</code></td></tr>
+            <tr><td><code>.checked</code></td><td>Se a caixinha está marcada (true/false).</td><td>&nbsp;</td></tr>
+            <tr><td><code>.textContent</code></td><td>O texto dentro de um elemento. Trocar = escrever na página.</td><td><code>saida.textContent = "Oi"</code></td></tr>
+            <tr><td><code>addEventListener()</code></td><td>"Quando acontecer isto, rode esta função".</td><td><code>form.addEventListener("submit", tratar)</code></td></tr>
+            <tr><td><code>"submit"</code> <code>"click"</code> <code>"input"</code></td><td>Eventos: enviar formulário, clicar, digitar.</td><td>&nbsp;</td></tr>
+            <tr><td><code>evento.preventDefault()</code></td><td>Impede o form de recarregar a página.</td><td>&nbsp;</td></tr>
+            <tr><td><code>evento.submitter</code></td><td>Qual botão enviou o formulário.</td><td>&nbsp;</td></tr>
+            <tr><td><code>.dataset</code></td><td>Lê os atributos <code>data-*</code>.</td><td><code>botao.dataset.estrutura</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>JS: números e textos</h2>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>Number()</code></td><td>Transforma texto em número.</td><td><code>Number("8")</code> → 8</td></tr>
+            <tr><td><code>NaN</code></td><td>"Não é um número": conversão que falhou.</td><td><code>Number("abc")</code></td></tr>
+            <tr><td><code>Number.isInteger()</code></td><td>É número inteiro?</td><td><code>Number.isInteger(7.5)</code> → false</td></tr>
+            <tr><td><code>Number.isFinite()</code></td><td>É um número válido (não NaN)?</td><td>&nbsp;</td></tr>
+            <tr><td><code>.toFixed(2)</code></td><td>Mostra com 2 casas decimais.</td><td><code>(7.5).toFixed(2)</code> → "7.50"</td></tr>
+            <tr><td><code>Math.floor()</code></td><td>Arredonda para baixo.</td><td><code>Math.floor(7.9)</code> → 7</td></tr>
+            <tr><td><code>String()</code></td><td>Transforma em texto.</td><td><code>String(10)</code> → "10"</td></tr>
+            <tr><td><code>.trim()</code></td><td>Tira espaços do começo e do fim.</td><td><code>" oi ".trim()</code> → "oi"</td></tr>
+            <tr><td><code>.replace()</code></td><td>Troca um pedaço do texto.</td><td><code>"8,5".replace(",", ".")</code></td></tr>
+            <tr><td><code>.padEnd()</code></td><td>Completa com espaços até um tamanho.</td><td>alinhar o teste de mesa</td></tr>
+            <tr><td><code>.includes()</code></td><td>O texto contém este pedaço?</td><td><code>"Gran".includes("ra")</code> → true</td></tr>
+            <tr><td><code>.toLowerCase()</code></td><td>Deixa tudo minúsculo.</td><td><code>"UL".toLowerCase()</code> → "ul"</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- util.js -->
+      <section id="util">
+        <h2>Funções do util.js (criadas no caderno)</h2>
+        <p>Não são do JavaScript: foram escritas aqui e várias páginas usam.</p>
+        <table>
+          <thead>
+            <tr><th>Termo</th><th>O que é</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>mostrar(id, texto)</code></td><td>Acrescenta uma linha de texto no elemento.</td><td><code>mostrar("saida", "Oi")</code></td></tr>
+            <tr><td><code>converterParaNumero(texto)</code></td><td>Texto → número (aceita vírgula). Inválido → null.</td><td><code>"8,5"</code> → 8.5</td></tr>
+            <tr><td><code>converterParaInteiro(texto)</code></td><td>Igual, mas só aceita inteiro.</td><td><code>"7.5"</code> → null</td></tr>
+            <tr><td><code>lerNumero(campo)</code></td><td>Lê o número digitado num input.</td><td><code>lerNumero(campoNota)</code></td></tr>
+            <tr><td><code>lerInteiro(campo)</code></td><td>Lê um inteiro digitado num input.</td><td><code>lerInteiro(campoFim)</code></td></tr>
+            <tr><td><code>coluna(valor)</code></td><td>Deixa as colunas do teste de mesa alinhadas.</td><td><code>coluna("soma")</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2026 - Práticas de Programação</p>
+    </footer>
+
+    <!-- Scripts no fim do body: a página já existe quando o JS roda. -->
+    <script src="js/glossario.js"></script>
+  </body>
+</html>

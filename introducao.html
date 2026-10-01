@@ -11,9 +11,30 @@
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho: igual em todas as páginas -->
     <header>
-      <h1>Práticas de Programação</h1>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
+
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
+      <nav>
+        <a href="introducao.html" aria-current="page">Início</a> |
+        <a href="basico.html">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="glossario.html">Glossário</a>
+      </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Início</h1>
     </header>
 
     <!-- Conteúdo -->
@@ -23,11 +44,25 @@
       </section>
 
       <section>
-        <h2>Conteúdo</h2>
-        <ul>
-          <li><a href="basico.html">HTML Básico</a></li>
-          <li><a href="javascript.html">Introdução ao JavaScript</a></li>
-        </ul>
+        <h2>Aulas, na ordem</h2>
+        <!-- ol = lista numerada: a ordem importa -->
+        <ol>
+          <li><a href="basico.html">HTML Básico</a>: textos, listas, links, tabela e formulário.</li>
+          <li><a href="javascript.html">JavaScript</a>: o que é e onde colocar o script.</li>
+          <li><a href="variaveis.html">Variáveis</a>: guardar valores com let e const.</li>
+          <li><a href="entrada-saida.html">Entrada e Saída</a>: prompt, alert e escrever na página.</li>
+          <li><a href="operadores.html">Operadores</a>: contas, comparações e lógica.</li>
+          <li><a href="desafio.html">Desafios</a>: praticar as operações.</li>
+          <li><a href="condicionais.html">Condicionais</a>: if, else e ternário.</li>
+          <li><a href="switch.html">Switch</a>: escolher entre vários casos.</li>
+          <li><a href="verificador.html">Verificador</a>: praticar condicionais com notas.</li>
+          <li><a href="repeticao.html">Repetição</a>: while e do...while.</li>
+          <li><a href="for.html">For</a>: for, for...in e for...of.</li>
+        </ol>
+        <p>
+          Não sabe o que é uma tag ou um comando? Veja o
+          <a href="glossario.html">Glossário</a>.
+        </p>
       </section>
     </main>
 

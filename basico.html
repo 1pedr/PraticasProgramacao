@@ -11,18 +11,30 @@
     <link rel="stylesheet" href="css/estilo.css" />
   </head>
   <body>
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho: igual em todas as páginas -->
     <header>
-      <!-- Use só UM h1 por página: é o título principal -->
-      <h1>Funcionalidades Básicas do HTML</h1>
+      <!-- Título do site: leva de volta ao Início -->
+      <a class="site" href="introducao.html">Práticas de Programação</a>
 
-      <!-- nav agrupa os links de navegação -->
+      <!-- Menu na ordem das aulas; aria-current marca a página atual -->
       <nav>
-        <!-- href="#id" pula para o elemento com aquele id na mesma página -->
-        <a href="#textos">Textos</a> | <a href="#listas">Listas</a> |
-        <a href="#links">Links e Imagens</a> | <a href="#tabela">Tabela</a> |
-        <a href="#formulario">Formulário</a>
+        <a href="introducao.html">Início</a> |
+        <a href="basico.html" aria-current="page">HTML Básico</a> |
+        <a href="javascript.html">JavaScript</a> |
+        <a href="variaveis.html">Variáveis</a> |
+        <a href="entrada-saida.html">Entrada e Saída</a> |
+        <a href="operadores.html">Operadores</a> |
+        <a href="desafio.html">Desafios</a> |
+        <a href="condicionais.html">Condicionais</a> |
+        <a href="switch.html">Switch</a> |
+        <a href="verificador.html">Verificador</a> |
+        <a href="repeticao.html">Repetição</a> |
+        <a href="for.html">For</a> |
+        <a href="glossario.html">Glossário</a>
       </nav>
+
+      <!-- Título desta página (só UM h1 por página) -->
+      <h1>Funcionalidades Básicas do HTML</h1>
     </header>
 
     <hr />
@@ -30,6 +42,14 @@
 
     <!-- Conteúdo -->
     <main>
+      <!-- Menu desta página: nav agrupa links -->
+      <nav>
+        <!-- href="#id" pula para o elemento com aquele id na mesma página -->
+        <a href="#textos">Textos</a> | <a href="#listas">Listas</a> |
+        <a href="#links">Links e Imagens</a> | <a href="#tabela">Tabela</a> |
+        <a href="#formulario">Formulário</a>
+      </nav>
+
       <!-- 1. textos -->
       <section id="textos">
         <h2>1. Textos</h2>
