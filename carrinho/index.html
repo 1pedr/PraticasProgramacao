@@ -1,0 +1,119 @@
+<!doctype html>
+<!-- lang: idioma da página (ajuda leitores de tela) -->
+<html lang="pt-BR">
+  <head>
+    <!-- Aceita acentos -->
+    <meta charset="UTF-8" />
+    <!-- Ajusta a página ao celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lojinha da Unidade</title>
+
+    <!-- Bootstrap (CSS pronto, via CDN) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <!-- Bootstrap Icons (ícones prontos, usados com <i class="bi bi-nome">) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- Nosso CSS: vem depois do Bootstrap para poder sobrescrevê-lo -->
+    <link rel="stylesheet" href="carrinho.css" />
+  </head>
+  <body>
+    <!-- Volta ao caderno (container: centraliza e limita a largura; py-3: espaço em cima e embaixo) -->
+    <div class="container py-3">
+      <a href="../aulas/introducao.html">← Práticas de Programação</a>
+    </div>
+
+    <main class="container">
+      <!-- Cabeçalho do carrinho -->
+      <h1>Lojinha da Unidade</h1>
+      <p class="text-muted"><span id="contador">3</span> itens</p>
+
+      <!-- Tabela de produtos (table-responsive: rola de lado no celular; align-middle: centraliza na vertical) -->
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="text-uppercase small">
+            <tr>
+              <th>Imagem</th>
+              <th>Produto</th>
+              <th>Preço unitário</th>
+              <th>Qtd</th>
+              <th>Total</th>
+              <th></th> <!-- coluna do botão remover -->
+            </tr>
+          </thead>
+
+          <!-- Uma linha por produto; os ids (produto0, quantidade0, total0...) são o número do produto, igual à posição nos arrays do JS -->
+          <tbody>
+            <!-- Produto 1 -->
+            <tr id="produto0">
+              <td><img src="img/mouse-atk.png" width="80" height="80" alt="Mouse ATK" class="img-thumbnail" /></td>
+              <td>
+                Mouse ATK
+                <br /><small class="text-muted">Código: 48213 · Cor: Preto</small>
+              </td>
+              <td>R$ 399,00</td>
+              <td>
+                <!-- btn-sm: botão pequeno -->
+                <button type="button" id="menos0" class="btn btn-outline-secondary btn-sm">−</button>
+                <span class="mx-2" id="quantidade0">2</span>
+                <button type="button" id="mais0" class="btn btn-outline-secondary btn-sm">+</button>
+              </td>
+              <td id="total0">R$ 798,00</td>
+              <td><button type="button" id="remover0" class="btn-close" aria-label="Remover Mouse ATK"></button></td>
+            </tr>
+
+            <!-- Produto 2 -->
+            <tr id="produto1">
+              <td><img src="img/mousepad-wl.png" width="80" height="80" alt="Mousepad WL Mouse" class="img-thumbnail" /></td>
+              <td>
+                Mousepad WL Mouse
+                <br /><small class="text-muted">Código: 70956 · Cor: Preto</small>
+              </td>
+              <td>R$ 210,00</td>
+              <td>
+                <button type="button" id="menos1" class="btn btn-outline-secondary btn-sm">−</button>
+                <span class="mx-2" id="quantidade1">1</span>
+                <button type="button" id="mais1" class="btn btn-outline-secondary btn-sm">+</button>
+              </td>
+              <td id="total1">R$ 210,00</td>
+              <td><button type="button" id="remover1" class="btn-close" aria-label="Remover Mousepad WL Mouse"></button></td>
+            </tr>
+
+            <!-- Produto 3 -->
+            <tr id="produto2">
+              <td><img src="img/marlboro-blue-ice.png" width="80" height="80" alt="Marlboro Blue Ice" class="img-thumbnail" /></td>
+              <td>
+                Marlboro Blue Ice
+                <br /><small class="text-muted">Código: 31487 · Cor: Azul</small>
+              </td>
+              <td>R$ 19,90</td>
+              <td>
+                <button type="button" id="menos2" class="btn btn-outline-secondary btn-sm">−</button>
+                <span class="mx-2" id="quantidade2">1</span>
+                <button type="button" id="mais2" class="btn btn-outline-secondary btn-sm">+</button>
+              </td>
+              <td id="total2">R$ 19,90</td>
+              <td><button type="button" id="remover2" class="btn-close" aria-label="Remover Marlboro Blue Ice"></button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Rodapé: Voltar, subtotal e Continuar (d-flex: lado a lado; justify-content-between: um em cada ponta) -->
+      <div class="d-flex justify-content-between align-items-center rodape p-3">
+        <a href="../aulas/introducao.html" class="btn btn-outline-dark btn-sm">Voltar</a>
+        <strong><i class="bi bi-cart3" aria-hidden="true"></i> Subtotal <span id="subtotal">R$ 1.027,90</span></strong>
+        <button type="button" class="btn btn-dark btn-sm">Continuar</button>
+      </div>
+    </main>
+
+    <!-- JS do Bootstrap (para botões, janelas e alertas; não é usado neste carrinho) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Nosso JS: no fim, depois de a página existir -->
+    <script src="carrinho.js"></script>
+  </body>
+</html>

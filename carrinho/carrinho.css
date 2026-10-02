@@ -1,0 +1,71 @@
+/*
+  Estilos do carrinho. Vêm depois do Bootstrap, então ganham dele.
+  1. Página
+  2. Imagens dos produtos
+  3. Colunas e números da tabela
+  4. Rodapé
+  5. Telas médias (até 991px)
+  6. Celular (até 767px)
+*/
+
+/* 1. Página */
+body {
+  background-color: #eee; /* cor de fundo (hexadecimal) */
+}
+
+/* 2. Imagens dos produtos */
+.table img {
+  width: 80px; /* largura fixa em pixels */
+  height: 80px;
+}
+
+/* 3. Colunas e números: o valor crescer (R$ 99,90 -> R$ 1.027,90) não empurra as outras colunas */
+.table {
+  table-layout: fixed;  /* respeita as larguras abaixo em vez de ajustar ao conteúdo */
+  min-width: 720px;     /* abaixo disso o table-responsive rola de lado */
+}
+.table th:nth-child(1) { width: 100px; } /* imagem */
+.table th:nth-child(3) { width: 130px; } /* preço */
+.table th:nth-child(4) { width: 140px; } /* quantidade */
+.table th:nth-child(5) { width: 140px; } /* total */
+.table th:nth-child(6) { width: 50px; }  /* remover */
+/* Preço, quantidade, total e remover: nunca quebram em duas linhas */
+.table td:nth-child(n + 3) {
+  white-space: nowrap;
+}
+
+/* Todos os dígitos com a mesma largura: 1 não fica mais estreito que 8 */
+.table,
+.rodape {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 4. Rodapé */
+.rodape {
+  background-color: rgb(204, 199, 199); /* cor de fundo (rgb: vermelho, verde, azul) */
+}
+
+/* 5. Telas médias: as regras abaixo só valem se a janela tiver até 991px de largura (media query) */
+@media (max-width: 991px) {
+  main {
+    padding: 0 30px; /* padding: espaço interno nos 4 lados (0 em cima e embaixo, 30px nos lados) */
+  }
+}
+
+/* 6. Celular: só vale até 767px de largura */
+@media (max-width: 767px) {
+  .table {
+    font-size: 12px; /* tamanho da letra */
+  }
+  .table img {
+    width: 60px; /* imagem menor para sobrar espaço */
+    height: 60px;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: 700; /* espessura da letra (700 = negrito) */
+  }
+  .rodape {
+    font-size: 12px;
+  }
+}
